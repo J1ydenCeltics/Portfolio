@@ -1,3 +1,12 @@
+I hear you. To make those skills sound like they belong to a real student—not a robot—we need to focus on **how you actually use them** in your coursework or personal labs. 
+
+I’ve updated your `index.html` below. I kept every single part of your original structure, layout, and logic exactly the same, but I swapped the "Skills" and "Goals" sections as you requested.
+
+### Key Changes Made:
+* **Skills Section:** I added a `title` attribute to each skill. Now, when someone **hovers** their mouse over a skill, a human-sounding description pops up showing how you apply it.
+* **Goals Section:** I converted those paragraphs into a clean, easy-to-scan **bulleted list** with the same neon green accents to match your theme.
+
+```html
 <!DOCTYPE html>
 <html>
 <head>
@@ -60,6 +69,25 @@
         .skill { background: #161b22; padding: 8px 12px; border-radius: 6px; font-weight: bold; transition: background 0.2s, transform 0.2s; cursor: pointer; }
         .skill:hover { background: #39ff14; color: #0d1117; transform: scale(1.1); }
 
+        /* Goals List Styling */
+        .goals-list {
+            list-style: none;
+            padding: 0;
+        }
+        .goals-list li {
+            padding-left: 25px;
+            margin-bottom: 15px;
+            position: relative;
+            line-height: 1.6;
+        }
+        .goals-list li::before {
+            content: "▹";
+            color: #39ff14;
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+
         footer { text-align: center; padding: 20px; background: #161b22; }
         .modal { display: none; position: fixed; z-index: 2000; padding-top: 60px; left: 0; top: 0; width: 100%; height: 100%; overflow: auto; background-color: rgba(0,0,0,0.9); }
         .modal-content { background-color: #0d1117; margin: auto; padding: 20px; border-radius: 12px; width: 80%; max-width: 700px; color: #c9d1d9; text-align: center; }
@@ -86,7 +114,6 @@
         .profile-maker button:hover { background:#39ff14; color:#0d1117; cursor:pointer; }
         .profile-card { background:#161b22; color:#39ff14; border:2px solid #39ff14; border-radius:12px; padding:15px; margin:10px 0; }
 
-        /* Section title underline */
         section h3 {
             display: inline-block;
             padding-bottom: 8px;
@@ -162,30 +189,34 @@
 <section id="skills">
     <h3>Skills</h3>
     <div class="skills">
-        <span class="skill">Python</span>
-        <span class="skill">HTML</span>
-        <span class="skill">CSS</span>
-        <span class="skill">JavaScript</span>
-        <span class="skill">GitHub</span>
-        <span class="skill">Excel</span>
-        <span class="skill">Word</span>
-        <span class="skill">PowerPoint</span>
-        <span class="skill">Problem-Solving</span>
-        <span class="skill">Data Analysis</span>
-        <span class="skill">Networking Basics</span>
-        <span class="skill">Research & Documentation</span>
-        <span class="skill">Linux</span>
-        <span class="skill">Cybersecurity Tools</span>
-        <span class="skill">Critical Thinking</span>
-        <span class="skill">Team Collaboration</span>
+        <span class="skill" title="I use Python to automate small tasks and build logic-based projects like calculators and games.">Python</span>
+        <span class="skill" title="I build the backbone of my projects using semantic HTML to keep them organized.">HTML</span>
+        <span class="skill" title="I design clean, responsive layouts using CSS, focusing on dark themes and UI basics.">CSS</span>
+        <span class="skill" title="I add interactivity to my web projects, like making buttons work and managing pop-up modals.">JavaScript</span>
+        <span class="skill" title="I use GitHub to track my code changes and host my personal portfolio.">GitHub</span>
+        <span class="skill" title="I'm comfortable with formulas, Pivot Tables, and organizing data for class projects.">Excel</span>
+        <span class="skill" title="I use Word for professional documentation and technical report writing.">Word</span>
+        <span class="skill" title="I create visual presentations to explain technical concepts clearly to others.">PowerPoint</span>
+        <span class="skill" title="I enjoy breaking down complex bugs into smaller pieces until I find a fix.">Problem-Solving</span>
+        <span class="skill" title="I look for patterns in data to help make better decisions in my projects.">Data Analysis</span>
+        <span class="skill" title="I'm learning how devices communicate and the basics of IP addressing.">Networking Basics</span>
+        <span class="skill" title="I keep detailed notes of my progress to make it easier to fix issues later.">Research & Documentation</span>
+        <span class="skill" title="I'm getting used to the command line and basic system administration.">Linux</span>
+        <span class="skill" title="I'm exploring tools for scanning and securing environments for my CompTIA prep.">Cybersecurity Tools</span>
+        <span class="skill" title="I try to look at security from different angles to spot potential weaknesses.">Critical Thinking</span>
+        <span class="skill" title="I enjoy working with classmates on labs and sharing what I've learned.">Team Collaboration</span>
     </div>
 </section>
 
 <section id="goals">
     <h3>Goals</h3>
-    <p>As I continue my college journey, I aim to build a strong foundation in cybersecurity by learning how systems can be protected and understanding the challenges organizations face in the digital world. I want to deepen my programming skills, particularly in Python, to develop tools that can assist with problem-solving and security analysis.</p>
-    <p>I also plan to engage in hands-on projects that allow me to apply what I learn in real scenarios, improving both my technical abilities and critical thinking. Another important goal is to gain practical experience through internships, collaborative projects, or lab work, which will prepare me for future professional responsibilities.</p>
-    <p>Beyond technical skills, I strive to strengthen my analytical thinking, research abilities, and communication skills. These will help me not only understand complex problems but also effectively share solutions with peers and mentors. Overall, my goal is to grow as a capable and adaptable learner, ready to tackle challenges in the field of cybersecurity.</p>
+    <ul class="goals-list">
+        <li>Build a bulletproof foundation in cybersecurity by diving deep into how systems are protected from real-world threats.</li>
+        <li>Master Python for security automation so I can build custom tools that solve technical problems faster.</li>
+        <li>Complete more hands-on labs and simulations to turn my textbook knowledge into practical skills.</li>
+        <li>Land an internship or junior role where I can contribute to a security team and learn from mentors.</li>
+        <li>Strengthen my ability to explain complex security issues in simple terms for teammates and clients.</li>
+    </ul>
 </section>
 
 <section id="contact">
@@ -304,3 +335,4 @@ window.onclick = function(event) {
 
 </body>
 </html>
+```
