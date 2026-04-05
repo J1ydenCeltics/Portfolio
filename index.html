@@ -11,7 +11,7 @@
             color: #c9d1d9;
         }
 
-        /* NAV BAR */
+        /* NAVIGATION */
         nav {
             background: #161b22;
             padding: 15px;
@@ -19,7 +19,7 @@
         }
 
         nav a {
-            color: #58a6ff;
+            color: #39ff14;
             margin: 0 15px;
             text-decoration: none;
             font-weight: bold;
@@ -35,9 +35,8 @@
             padding: 60px 20px;
         }
 
-        h1 {
-            color: #58a6ff;
-            margin-bottom: 10px;
+        h1, h2, h3 {
+            color: #39ff14;
         }
 
         section {
@@ -59,8 +58,14 @@
             transform: scale(1.02);
         }
 
-        h3 {
-            color: #58a6ff;
+        .card img {
+            width: 100%;
+            border-radius: 8px;
+            transition: transform 0.2s;
+        }
+
+        .card img:hover {
+            transform: scale(1.05);
         }
 
         ul {
@@ -72,6 +77,7 @@
             padding: 20px;
             background: #161b22;
         }
+
     </style>
 </head>
 
@@ -109,21 +115,25 @@
 
         <div class="card">
             <h4>Python Calculator</h4>
+            <img src="https://via.placeholder.com/400" alt="Python Calculator">
             <p>Performs basic math operations and helped me learn Python fundamentals.</p>
         </div>
 
         <div class="card">
             <h4>Tic-Tac-Toe Game</h4>
+            <img src="https://via.placeholder.com/400" alt="Tic-Tac-Toe Game">
             <p>A simple game using loops and logic.</p>
         </div>
 
         <div class="card">
             <h4>Password Generator</h4>
+            <img src="https://via.placeholder.com/400" alt="Password Generator">
             <p>Creates random passwords and introduced me to basic security concepts.</p>
         </div>
 
         <div class="card">
             <h4>Excel Data Analysis</h4>
+            <img src="https://via.placeholder.com/400" alt="Excel Data Analysis">
             <p>Organized data and created charts using Excel.</p>
         </div>
     </section>
