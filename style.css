@@ -1,24 +1,134 @@
+/* General Styles */
 body {
-    background-color: #0d1117;
-    color: #c9d1d9;
+    font-family: 'Roboto', sans-serif;
+    background-color: #0d0d0d; /* deep black */
+    color: #00ff66; /* neon green text */
+    margin: 0;
+    padding: 0;
 }
 
-h1, h2, h3 {
-    color: #39ff14;
+a {
+    color: #00ff66;
+    text-decoration: none;
 }
 
-nav {
-    background: #161b22;
+a:hover {
+    color: #66ff99;
 }
 
-nav a {
-    color: #39ff14;
+/* Navigation Bar */
+.navbar {
+    background-color: #111111;
+    display: flex;
+    justify-content: center;
+    padding: 15px 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
 }
 
-.card {
-    background: #161b22;
+.navbar a {
+    margin: 0 20px;
+    font-weight: 700;
+    font-size: 1.1rem;
+    transition: color 0.3s;
 }
 
-.card:hover {
-    transform: scale(1.02);
+/* Header */
+.header {
+    text-align: center;
+    padding: 50px 20px 30px 20px;
+}
+
+.header h1 {
+    font-size: 3rem;
+    margin-bottom: 10px;
+}
+
+.header h2 {
+    font-size: 1.5rem;
+    font-weight: 400;
+    color: #66ff99;
+}
+
+/* Projects Section */
+.projects-section {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+    padding: 40px 20px;
+}
+
+.project-card {
+    background-color: #111111;
+    border: 2px solid #00ff66;
+    border-radius: 10px;
+    padding: 20px;
+    cursor: pointer;
+    transition: transform 0.3s, background-color 0.3s;
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+    background-color: #1a1a1a;
+}
+
+/* Modal Styles */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed;
+    z-index: 2000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.85);
+}
+
+.modal-content {
+    background-color: #111111;
+    margin: 10% auto;
+    padding: 30px;
+    border: 2px solid #00ff66;
+    border-radius: 10px;
+    width: 90%;
+    max-width: 600px;
+    text-align: center;
+    animation: fadeIn 0.5s;
+}
+
+.modal-content h2 {
+    margin-top: 0;
+    color: #00ff66;
+}
+
+.modal-content p {
+    color: #ffffff;
+}
+
+.close {
+    color: #00ff66;
+    float: right;
+    font-size: 2rem;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close:hover {
+    color: #66ff99;
+}
+
+/* Footer */
+.footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #111111;
+    border-top: 2px solid #00ff66;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
 }
