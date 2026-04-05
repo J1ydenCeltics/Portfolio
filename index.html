@@ -1,12 +1,3 @@
-I hear you. To make those skills sound like they belong to a real student—not a robot—we need to focus on **how you actually use them** in your coursework or personal labs. 
-
-I’ve updated your `index.html` below. I kept every single part of your original structure, layout, and logic exactly the same, but I swapped the "Skills" and "Goals" sections as you requested.
-
-### Key Changes Made:
-* **Skills Section:** I added a `title` attribute to each skill. Now, when someone **hovers** their mouse over a skill, a human-sounding description pops up showing how you apply it.
-* **Goals Section:** I converted those paragraphs into a clean, easy-to-scan **bulleted list** with the same neon green accents to match your theme.
-
-```html
 <!DOCTYPE html>
 <html>
 <head>
@@ -71,21 +62,16 @@ I’ve updated your `index.html` below. I kept every single part of your origina
 
         /* Goals List Styling */
         .goals-list {
-            list-style: none;
-            padding: 0;
+            list-style: disc;
+            padding-left: 20px;
+            color: #c9d1d9;
         }
         .goals-list li {
-            padding-left: 25px;
             margin-bottom: 15px;
-            position: relative;
             line-height: 1.6;
         }
-        .goals-list li::before {
-            content: "▹";
+        .goals-list li::marker {
             color: #39ff14;
-            position: absolute;
-            left: 0;
-            font-weight: bold;
         }
 
         footer { text-align: center; padding: 20px; background: #161b22; }
@@ -189,33 +175,33 @@ I’ve updated your `index.html` below. I kept every single part of your origina
 <section id="skills">
     <h3>Skills</h3>
     <div class="skills">
-        <span class="skill" title="I use Python to automate small tasks and build logic-based projects like calculators and games.">Python</span>
-        <span class="skill" title="I build the backbone of my projects using semantic HTML to keep them organized.">HTML</span>
-        <span class="skill" title="I design clean, responsive layouts using CSS, focusing on dark themes and UI basics.">CSS</span>
-        <span class="skill" title="I add interactivity to my web projects, like making buttons work and managing pop-up modals.">JavaScript</span>
-        <span class="skill" title="I use GitHub to track my code changes and host my personal portfolio.">GitHub</span>
-        <span class="skill" title="I'm comfortable with formulas, Pivot Tables, and organizing data for class projects.">Excel</span>
-        <span class="skill" title="I use Word for professional documentation and technical report writing.">Word</span>
-        <span class="skill" title="I create visual presentations to explain technical concepts clearly to others.">PowerPoint</span>
-        <span class="skill" title="I enjoy breaking down complex bugs into smaller pieces until I find a fix.">Problem-Solving</span>
-        <span class="skill" title="I look for patterns in data to help make better decisions in my projects.">Data Analysis</span>
-        <span class="skill" title="I'm learning how devices communicate and the basics of IP addressing.">Networking Basics</span>
-        <span class="skill" title="I keep detailed notes of my progress to make it easier to fix issues later.">Research & Documentation</span>
-        <span class="skill" title="I'm getting used to the command line and basic system administration.">Linux</span>
-        <span class="skill" title="I'm exploring tools for scanning and securing environments for my CompTIA prep.">Cybersecurity Tools</span>
-        <span class="skill" title="I try to look at security from different angles to spot potential weaknesses.">Critical Thinking</span>
-        <span class="skill" title="I enjoy working with classmates on labs and sharing what I've learned.">Team Collaboration</span>
+        <span class="skill" onclick="alert('I use Python to automate small tasks and build logic-based projects like calculators and games.')">Python</span>
+        <span class="skill" onclick="alert('I build the backbone of my projects using semantic HTML to keep them organized.')">HTML</span>
+        <span class="skill" onclick="alert('I design clean, responsive layouts using CSS, focusing on dark themes and UI basics.')">CSS</span>
+        <span class="skill" onclick="alert('I add interactivity to my web projects, like making buttons work and managing pop-up modals.')">JavaScript</span>
+        <span class="skill" onclick="alert('I use GitHub to track my code changes and host my personal portfolio.')">GitHub</span>
+        <span class="skill" onclick="alert('I\'m comfortable with formulas, Pivot Tables, and organizing data for class projects.')">Excel</span>
+        <span class="skill" onclick="alert('I use Word for professional documentation and technical report writing.')">Word</span>
+        <span class="skill" onclick="alert('I create visual presentations to explain technical concepts clearly to others.')">PowerPoint</span>
+        <span class="skill" onclick="alert('I enjoy breaking down complex bugs into smaller pieces until I find a fix.')">Problem-Solving</span>
+        <span class="skill" onclick="alert('I look for patterns in data to help make better decisions in my projects.')">Data Analysis</span>
+        <span class="skill" onclick="alert('I\'m learning how devices communicate and the basics of IP addressing.')">Networking Basics</span>
+        <span class="skill" onclick="alert('I keep detailed notes of my progress to make it easier to fix issues later.')">Research & Documentation</span>
+        <span class="skill" onclick="alert('I\'m getting used to the command line and basic system administration.')">Linux</span>
+        <span class="skill" onclick="alert('I\'m exploring tools for scanning and securing environments for my CompTIA prep.')">Cybersecurity Tools</span>
+        <span class="skill" onclick="alert('I try to look at security from different angles to spot potential weaknesses.')">Critical Thinking</span>
+        <span class="skill" onclick="alert('I enjoy working with classmates on labs and sharing what I\'ve learned.')">Team Collaboration</span>
     </div>
 </section>
 
 <section id="goals">
     <h3>Goals</h3>
     <ul class="goals-list">
-        <li>Build a bulletproof foundation in cybersecurity by diving deep into how systems are protected from real-world threats.</li>
-        <li>Master Python for security automation so I can build custom tools that solve technical problems faster.</li>
-        <li>Complete more hands-on labs and simulations to turn my textbook knowledge into practical skills.</li>
-        <li>Land an internship or junior role where I can contribute to a security team and learn from mentors.</li>
-        <li>Strengthen my ability to explain complex security issues in simple terms for teammates and clients.</li>
+        <li><b>Master Cybersecurity Foundations:</b> Understand and build a strong foundation in cybersecurity by learning how systems are protected against real-world threats.</li>
+        <li><b>Develop Python for Security Automation:</b> Create custom tools that solve technical problems efficiently.</li>
+        <li><b>Gain Hands-On Experience:</b> Complete labs and simulations to turn textbook knowledge into practical skills.</li>
+        <li><b>Secure Real-World Experience:</b> Land an internship or junior role to contribute to a security team and learn from mentors.</li>
+        <li><b>Communicate Complex Security Concepts:</b> Strengthen the ability to explain technical issues clearly to teammates and clients.</li>
     </ul>
 </section>
 
@@ -335,4 +321,3 @@ window.onclick = function(event) {
 
 </body>
 </html>
-```
