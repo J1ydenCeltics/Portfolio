@@ -56,7 +56,7 @@
         #about .about-container {
             display: flex;
             flex-wrap: wrap;
-            align-items: flex-start;
+            align-items: center; /* vertical centering with image */
             gap: 20px;
         }
         #about .about-container img {
@@ -72,6 +72,12 @@
             nav a{display:block;margin:10px 0;}
             #about .about-container { flex-direction: column; align-items: center; }
             #about .about-text { text-align: center; }
+        }
+
+        /* Extra spacing for goals */
+        #goals p, #goals li {
+            word-spacing: 3px;
+            margin-bottom: 10px;
         }
     </style>
 </head>
@@ -105,15 +111,195 @@
     </div>
 </section>
 
-<!-- Placeholder sections for now -->
-<section id="projects"><h3>Projects</h3></section>
-<section id="skills"><h3>Skills</h3></section>
-<section id="goals"><h3>Goals</h3></section>
-<section id="contact"><h3>Contact</h3></section>
+<!-- Projects Section -->
+<section id="projects">
+    <h3>Projects</h3>
+    <p style="margin-bottom:20px;">Click on a project to test it out.</p>
+    <div class="card-container">
+        <div class="card" onclick="openModal('Python Calculator', true,false,false,false,false,false)">
+            <img src="https://via.placeholder.com/400" alt="Python Calculator">
+            <h4>Python Calculator</h4>
+        </div>
+        <div class="card" onclick="openModal('Tic-Tac-Toe Game', false,true,false,false,false,false)">
+            <img src="https://via.placeholder.com/400" alt="Tic-Tac-Toe">
+            <h4>Tic-Tac-Toe Game</h4>
+        </div>
+        <div class="card" onclick="openModal('Password Generator', false,false,true,false,false,false)">
+            <img src="https://via.placeholder.com/400" alt="Password Generator">
+            <h4>Password Generator</h4>
+        </div>
+        <div class="card" onclick="openModal('Simple Quiz Game', false,false,false,true,false,false)">
+            <img src="https://via.placeholder.com/400" alt="Quiz Game">
+            <h4>Simple Quiz Game</h4>
+        </div>
+        <div class="card" onclick="openModal('Mini Spreadsheet', false,false,false,false,true,false)">
+            <img src="https://via.placeholder.com/400" alt="Mini Spreadsheet">
+            <h4>Mini Spreadsheet</h4>
+        </div>
+        <div class="card" onclick="openModal('Profile Card Maker', false,false,false,false,false,true)">
+            <img src="https://via.placeholder.com/400" alt="Profile Card Maker">
+            <h4>Profile Card Maker</h4>
+        </div>
+    </div>
+</section>
+
+<!-- Skills Section -->
+<section id="skills">
+    <h3>Skills</h3>
+    <div class="skills">
+        <span class="skill" onclick="showSkill('Python')">Python</span>
+        <span class="skill" onclick="showSkill('HTML')">HTML</span>
+        <span class="skill" onclick="showSkill('CSS')">CSS</span>
+        <span class="skill" onclick="showSkill('JavaScript')">JavaScript</span>
+        <span class="skill" onclick="showSkill('GitHub')">GitHub</span>
+        <span class="skill" onclick="showSkill('Excel')">Excel</span>
+        <span class="skill" onclick="showSkill('Word')">Word</span>
+        <span class="skill" onclick="showSkill('PowerPoint')">PowerPoint</span>
+        <span class="skill" onclick="showSkill('Problem-Solving')">Problem-Solving</span>
+        <span class="skill" onclick="showSkill('Data Analysis')">Data Analysis</span>
+        <span class="skill" onclick="showSkill('Networking Basics')">Networking Basics</span>
+        <span class="skill" onclick="showSkill('Research & Documentation')">Research & Documentation</span>
+    </div>
+    <div id="skillDescription" style="margin-top:15px;"></div>
+</section>
+
+<!-- Goals Section -->
+<section id="goals">
+    <h3>Goals</h3>
+    <ul>
+        <li>Learn cybersecurity fundamentals and understand key concepts like network security, ethical hacking, and system protection.</li>
+        <li>Improve Python skills by building scripts, automating tasks, and learning libraries useful in cybersecurity tasks.</li>
+        <li>Develop practical projects to apply what I learn and gain hands-on experience in problem-solving and software development.</li>
+        <li>Gain real-world experience through internships, labs, and collaborative projects to understand professional cybersecurity environments.</li>
+    </ul>
+</section>
+
+<!-- Contact Section -->
+<section id="contact">
+    <h3>Contact</h3>
+    <p>Email: jyousuf1@mail.valenciacollege.edu</p>
+</section>
 
 <footer>
     <p>© 2026 Jayden Yousuf</p>
 </footer>
+
+<!-- Project Modal -->
+<div id="projectModal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <h3 id="modalTitle"></h3>
+        <div id="modalBody"></div>
+    </div>
+</div>
+
+<script>
+const modal = document.getElementById('projectModal');
+const modalTitle = document.getElementById('modalTitle');
+const modalBody = document.getElementById('modalBody');
+
+function openModal(title, isCalc=false,isTic=false,isPass=false,isQuiz=false,isSheet=false,isProfile=false){
+    modalTitle.innerText = title;
+    modalBody.innerHTML = '';
+
+    if(isCalc){
+        const input = document.createElement('input'); input.type='text'; input.id='calcInput'; input.placeholder='0';
+        const keys=['7','8','9','/','4','5','6','*','1','2','3','-','0','.','=','+'];
+        const container = document.createElement('div'); container.className='calculator';
+        container.appendChild(input);
+        keys.forEach(k=>{
+            const btn=document.createElement('button');
+            btn.innerText=k;
+            btn.onclick=()=>{ if(k==='='){ try{ input.value=eval(input.value); }catch(e){ input.value='Error';} }else{ input.value+=k; } };
+            container.appendChild(btn);
+        });
+        modalBody.appendChild(container);
+    }
+
+    if(isTic){
+        const board=document.createElement('div'); board.className='tic-tac-toe';
+        let turn='X';
+        for(let i=0;i<9;i++){
+            let btn=document.createElement('button');
+            btn.onclick=function(){ if(btn.innerText==''){btn.innerText=turn; turn=turn==='X'?'O':'X'; }};
+            board.appendChild(btn);
+        }
+        modalBody.appendChild(board);
+    }
+
+    if(isPass){
+        const btn=document.createElement('button'); btn.innerText='Generate Password';
+        const output=document.createElement('p'); output.style.marginTop='15px';
+        btn.onclick=()=>{ const chars='abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()'; let pw=''; for(let i=0;i<12;i++){ pw+=chars[Math.floor(Math.random()*chars.length)]; } output.innerText=pw; }
+        modalBody.appendChild(btn); modalBody.appendChild(output);
+    }
+
+    if(isQuiz){
+        const quiz=[{q:"What does Python mainly do?",options:["Cooking","Programming","Painting","Dancing"],answer:1},{q:"What is a common cybersecurity practice?",options:["Strong passwords","Sharing passwords","Ignoring updates","Clicking unknown links"],answer:0},{q:"Which tag is used for a paragraph in HTML?",options:["<p>","<div>","<h1>","<span>"],answer:0}];
+        let current=0; let score=0;
+        const container=document.createElement('div'); container.className='quiz-container';
+        const showQuestion=()=>{
+            container.innerHTML='';
+            if(current>=quiz.length){ container.innerHTML=`<h4>Quiz Complete! Score: ${score}/${quiz.length}</h4>`; return; }
+            const q=document.createElement('p'); q.innerText=quiz[current].q; container.appendChild(q);
+            quiz[current].options.forEach((opt,i)=>{
+                const btn=document.createElement('button'); btn.innerText=opt; 
+                btn.onclick=function(){ if(i===quiz[current].answer){ alert('Correct!'); score++; } else{ alert('Wrong!'); } current++; showQuestion(); };
+                container.appendChild(btn);
+            });
+        }
+        showQuestion(); modalBody.appendChild(container);
+    }
+
+    if(isSheet){
+        const container=document.createElement('div'); container.className='spreadsheet';
+        let cells=[]; for(let i=0;i<9;i++){ const input=document.createElement('input'); input.type='number'; input.value='0'; container.appendChild(input); cells.push(input); }
+        const sumBtn=document.createElement('button'); sumBtn.innerText='Calculate Sum'; sumBtn.onclick=()=>{ let sum=0; cells.forEach(c=>sum+=parseFloat(c.value)||0); alert('Sum: '+sum); };
+        const avgBtn=document.createElement('button'); avgBtn.innerText='Calculate Average'; avgBtn.onclick=()=>{ let sum=0; cells.forEach(c=>sum+=parseFloat(c.value)||0); alert('Average: '+(sum/cells.length)); };
+        container.appendChild(sumBtn); container.appendChild(avgBtn); modalBody.appendChild(container);
+    }
+
+    if(isProfile){
+        const container=document.createElement('div'); container.className='profile-maker';
+        const nameInput=document.createElement('input'); nameInput.placeholder='Name';
+        const roleInput=document.createElement('input'); roleInput.placeholder='Role';
+        const skillInput=document.createElement('input'); skillInput.placeholder='Skill';
+        const addBtn=document.createElement('button'); addBtn.innerText='Add Profile';
+        const list=document.createElement('div'); list.style.marginTop='15px';
+        addBtn.onclick=()=>{
+            const card=document.createElement('div'); card.className='profile-card';
+            card.innerHTML=`<h4>${nameInput.value}</h4><p>${roleInput.value}</p><p>Skills: ${skillInput.value}</p>`;
+            list.appendChild(card);
+            nameInput.value=''; roleInput.value=''; skillInput.value='';
+        };
+        container.appendChild(nameInput); container.appendChild(roleInput); container.appendChild(skillInput); container.appendChild(addBtn); container.appendChild(list);
+        modalBody.appendChild(container);
+    }
+
+    modal.style.display='block';
+}
+
+function closeModal(){ modal.style.display='none'; }
+window.onclick=function(e){ if(e.target==modal){ closeModal(); } }
+
+function showSkill(skill){
+    const descriptions = {
+        "Python":"Python is a versatile programming language used for web development, automation, data analysis, and cybersecurity scripts.",
+        "HTML":"HTML is the standard markup language for creating web pages and structuring content.",
+        "CSS":"CSS is used to style and layout web pages, controlling colors, fonts, and positioning.",
+        "JavaScript":"JavaScript enables interactive behavior on web pages, including dynamic content and animations.",
+        "GitHub":"GitHub is a platform for version control and collaborative coding.",
+        "Excel":"Excel is used for organizing, analyzing, and visualizing data with spreadsheets and formulas.",
+        "Word":"Word is a word processor for creating documents.",
+        "PowerPoint":"PowerPoint is used to create presentations.",
+        "Problem-Solving":"Problem-solving is the ability to analyze and solve issues logically and efficiently.",
+        "Data Analysis":"Data analysis involves inspecting and modeling data to discover patterns and insights.",
+        "Networking Basics":"Networking Basics covers understanding how computers communicate over networks.",
+        "Research & Documentation":"Research & Documentation involves gathering information and creating accurate records."
+    };
+    document.getElementById('skillDescription').innerText = descriptions[skill] || '';
+}
+</script>
 
 </body>
 </html>
