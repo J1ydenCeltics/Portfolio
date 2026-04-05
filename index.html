@@ -90,6 +90,12 @@
 
         .calculator { display: grid; grid-template-columns: repeat(4, 80px); grid-gap: 10px; justify-content: center; margin: 20px 0; }
         .calculator input { grid-column: span 4; height: 50px; font-size: 1.5em; text-align: right; background: #0d1117; color: #39ff14; border: 2px solid #39ff14; border-radius: 6px; }
+
+        /* QUIZ GAME */
+        .quiz-container { margin-top: 20px; }
+        .quiz-container button { margin: 5px; padding: 10px 20px; font-size: 1em; border-radius: 6px; cursor: pointer; border: 2px solid #39ff14; background: #161b22; color: #39ff14; }
+        .quiz-container button:hover { background: #39ff14; color: #0d1117; }
+
         @media (max-width: 600px){ nav a{display:block;margin:10px 0;} .tic-tac-toe button, .calculator button{width:60px;height:60px;} }
     </style>
 </head>
@@ -120,29 +126,29 @@
 <section id="projects">
     <h3>Projects</h3>
     <div class="card-container">
-        <div class="card" onclick="openModal('Python Calculator', true, false, false)">
+        <div class="card" onclick="openModal('Python Calculator', true, false, false, false)">
             <img src="https://via.placeholder.com/400" alt="Python Calculator">
             <h4>Python Calculator</h4>
         </div>
-        <div class="card" onclick="openModal('Tic-Tac-Toe Game', false, true, false)">
+        <div class="card" onclick="openModal('Tic-Tac-Toe Game', false, true, false, false)">
             <img src="https://via.placeholder.com/400" alt="Tic-Tac-Toe Game">
             <h4>Tic-Tac-Toe Game</h4>
         </div>
-        <div class="card" onclick="openModal('Password Generator', false, false, true)">
+        <div class="card" onclick="openModal('Password Generator', false, false, true, false)">
             <img src="https://via.placeholder.com/400" alt="Password Generator">
             <h4>Password Generator</h4>
         </div>
-        <div class="card" onclick="openModal('Excel Data Analysis')">
+        <div class="card" onclick="openModal('Simple Quiz Game', false, false, false, true)">
+            <img src="https://via.placeholder.com/400" alt="Quiz Game">
+            <h4>Simple Quiz Game</h4>
+        </div>
+        <div class="card" onclick="openModal('Excel Data Analysis', false, false, false, false)">
             <img src="https://via.placeholder.com/400" alt="Excel Data Analysis">
             <h4>Excel Data Analysis</h4>
         </div>
-        <div class="card" onclick="openModal('Website Portfolio')">
+        <div class="card" onclick="openModal('Website Portfolio', false, false, false, false)">
             <img src="https://via.placeholder.com/400" alt="Website Portfolio">
             <h4>Website Portfolio</h4>
-        </div>
-        <div class="card" onclick="openModal('Simple Quiz Game')">
-            <img src="https://via.placeholder.com/400" alt="Quiz Game">
-            <h4>Simple Quiz Game</h4>
         </div>
     </div>
 </section>
@@ -153,11 +159,11 @@
         <span class="skill">Python</span>
         <span class="skill">HTML</span>
         <span class="skill">CSS</span>
-        <span class="skill">GitHub</span>
-        <span class="skill">Microsoft Word</span>
-        <span class="skill">PowerPoint</span>
-        <span class="skill">Excel</span>
         <span class="skill">JavaScript</span>
+        <span class="skill">GitHub</span>
+        <span class="skill">Excel</span>
+        <span class="skill">Word</span>
+        <span class="skill">PowerPoint</span>
         <span class="skill">Problem-Solving</span>
         <span class="skill">Data Analysis</span>
         <span class="skill">Networking Basics</span>
@@ -198,18 +204,15 @@
     const modalTitle = document.getElementById('modalTitle');
     const modalBody = document.getElementById('modalBody');
 
-    function openModal(title, isCalculator=false, isTicTacToe=false, isPassword=false){
+    function openModal(title, isCalculator=false, isTicTacToe=false, isPassword=false, isQuiz=false){
         modalTitle.innerText = title;
         modalBody.innerHTML = '';
         
         if(isCalculator){
             const input = document.createElement('input');
-            input.type='text';
-            input.id='calcInput';
-            input.placeholder='0';
+            input.type='text'; input.id='calcInput'; input.placeholder='0';
             const keys = ['7','8','9','/','4','5','6','*','1','2','3','-','0','.','=','+'];
-            const container = document.createElement('div');
-            container.className='calculator';
+            const container = document.createElement('div'); container.className='calculator';
             container.appendChild(input);
             keys.forEach(k=>{
                 const btn = document.createElement('button');
@@ -246,6 +249,36 @@
             }
             modalBody.appendChild(btn);
             modalBody.appendChild(output);
+        }
+
+        if(isQuiz){
+            const quiz = [
+                {q:"What does Python mainly do?", options:["Cooking","Programming","Painting","Dancing"], answer:1},
+                {q:"What is a common cybersecurity practice?", options:["Strong passwords","Sharing passwords","Ignoring updates","Clicking unknown links"], answer:0},
+                {q:"Which tag is used for a paragraph in HTML?", options:["<p>","<div>","<h1>","<span>"], answer:0}
+            ];
+            let current=0; let score=0;
+            const container = document.createElement('div'); container.className='quiz-container';
+            const showQuestion = () => {
+                container.innerHTML='';
+                if(current>=quiz.length){
+                    container.innerHTML=`<h4>Quiz Complete! Score: ${score}/${quiz.length}</h4>`;
+                    return;
+                }
+                const q = document.createElement('p'); q.innerText=quiz[current].q;
+                container.appendChild(q);
+                quiz[current].options.forEach((opt,i)=>{
+                    const btn=document.createElement('button'); btn.innerText=opt;
+                    btn.onclick=function(){
+                        if(i===quiz[current].answer){ alert('Correct!'); score++; }
+                        else{ alert('Wrong!'); }
+                        current++; showQuestion();
+                    }
+                    container.appendChild(btn);
+                });
+            }
+            showQuestion();
+            modalBody.appendChild(container);
         }
 
         modal.style.display='block';
