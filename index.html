@@ -6,102 +6,162 @@
     <style>
         body {
             font-family: Arial;
-            max-width: 800px;
-            margin: auto;
-            line-height: 1.6;
+            margin: 0;
             background-color: #0d1117;
             color: #c9d1d9;
         }
 
-        h1, h2, h3 {
+        /* NAV BAR */
+        nav {
+            background: #161b22;
+            padding: 15px;
+            text-align: center;
+        }
+
+        nav a {
+            color: #58a6ff;
+            margin: 0 15px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        /* HERO */
+        header {
+            text-align: center;
+            padding: 60px 20px;
+        }
+
+        h1 {
+            color: #58a6ff;
+            margin-bottom: 10px;
+        }
+
+        section {
+            max-width: 900px;
+            margin: auto;
+            padding: 40px 20px;
+        }
+
+        /* CARDS */
+        .card {
+            background: #161b22;
+            padding: 20px;
+            margin: 15px 0;
+            border-radius: 10px;
+            transition: transform 0.2s;
+        }
+
+        .card:hover {
+            transform: scale(1.02);
+        }
+
+        h3 {
             color: #58a6ff;
         }
 
-        hr {
-            border: 1px solid #30363d;
+        ul {
+            padding-left: 20px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: #161b22;
         }
     </style>
-
 </head>
 
 <body>
 
-    <h1>Jayden Yousuf</h1>
-    <h2>Aspiring Cybersecurity Analyst</h2>
-    <p><strong>Focused on learning programming and building foundational cybersecurity skills</strong></p>
+    <!-- NAVIGATION -->
+    <nav>
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#skills">Skills</a>
+        <a href="#goals">Goals</a>
+        <a href="#contact">Contact</a>
+    </nav>
 
-    <hr>
+    <!-- HERO -->
+    <header>
+        <h1>Jayden Yousuf</h1>
+        <h2>Aspiring Cybersecurity Analyst</h2>
+        <p>Focused on learning programming and building cybersecurity skills</p>
+    </header>
 
-    <h3>About Me</h3>
-    <p>
-        My name is Jayden Yousuf, and I am a college student with an interest in cybersecurity,
-        especially the programming side behind it. I enjoy learning how systems work and using
-        code to solve problems.
+    <!-- ABOUT -->
+    <section id="about">
+        <h3>About Me</h3>
+        <p>
+            I am a college student interested in cybersecurity, especially the programming side behind it.
+            I enjoy learning how systems work and using code to solve problems. I am currently building
+            my skills through beginner projects and hands-on practice.
+        </p>
+    </section>
 
-        I am currently building my technical skills through beginner projects and hands-on practice.
-        While I am still early in my learning journey, I am motivated to continue improving and
-        gaining real-world experience in cybersecurity.
-    </p>
+    <!-- PROJECTS -->
+    <section id="projects">
+        <h3>Projects</h3>
 
-    <h3>Projects</h3>
+        <div class="card">
+            <h4>Python Calculator</h4>
+            <p>Performs basic math operations and helped me learn Python fundamentals.</p>
+        </div>
 
-    <h4>Simple Python Calculator</h4>
-    <p>
-        Developed a basic calculator using Python that performs arithmetic operations.
-        This project helped me understand variables, user input, and logical thinking.
-    </p>
+        <div class="card">
+            <h4>Tic-Tac-Toe Game</h4>
+            <p>A simple game using loops and logic.</p>
+        </div>
 
-    <h4>Python Tic-Tac-Toe Game</h4>
-    <p>
-        Created a simple Tic-Tac-Toe game using Python.
-        This project strengthened my understanding of loops and conditionals.
-    </p>
+        <div class="card">
+            <h4>Password Generator</h4>
+            <p>Creates random passwords and introduced me to basic security concepts.</p>
+        </div>
 
-    <h4>Password Generator (Python)</h4>
-    <p>
-        Built a simple password generator that creates random secure passwords.
-        This helped me learn about randomness and basic security concepts.
-    </p>
+        <div class="card">
+            <h4>Excel Data Analysis</h4>
+            <p>Organized data and created charts using Excel.</p>
+        </div>
+    </section>
 
-    <h4>Basic Data Analysis (Excel)</h4>
-    <p>
-        Worked with a dataset in Excel to organize information and create simple charts.
-        This helped me understand basic data analysis and visualization.
-    </p>
+    <!-- SKILLS -->
+    <section id="skills">
+        <h3>Skills</h3>
+        <ul>
+            <li>Python (beginner)</li>
+            <li>HTML (basic)</li>
+            <li>GitHub (basic)</li>
+            <li>Microsoft Word</li>
+            <li>PowerPoint</li>
+            <li>Excel</li>
+        </ul>
+    </section>
 
-    <h3>Skills</h3>
-    <ul>
-        <li>Python (beginner)</li>
-        <li>HTML (basic)</li>
-        <li>GitHub (basic)</li>
-        <li>Microsoft Word</li>
-        <li>Microsoft PowerPoint</li>
-        <li>Microsoft Excel</li>
-    </ul>
+    <!-- GOALS -->
+    <section id="goals">
+        <h3>Goals</h3>
+        <ul>
+            <li>Learn cybersecurity fundamentals</li>
+            <li>Improve Python skills</li>
+            <li>Build more projects</li>
+            <li>Gain real-world experience</li>
+        </ul>
+    </section>
 
-    <h3>Learning</h3>
-    <ul>
-        <li>Introduction to Python programming</li>
-        <li>Basic HTML and web development</li>
-        <li>Fundamentals of problem-solving in programming</li>
-    </ul>
+    <!-- CONTACT -->
+    <section id="contact">
+        <h3>Contact</h3>
+        <p>Email: jyousuf1@mail.valenciacollege.edu</p>
+    </section>
 
-    <h3>Experience</h3>
-    <p>
-        I have assisted in a family business, helping with general responsibilities and tasks.
-        This experience has helped me develop communication, organization, and reliability skills.
-    </p>
-
-    <h3>Goals</h3>
-    <ul>
-        <li>Build a strong foundation in cybersecurity</li>
-        <li>Improve my Python programming skills</li>
-        <li>Learn networking and system security basics</li>
-        <li>Continue creating projects to expand my portfolio</li>
-    </ul>
-
-    <h3>Contact</h3>
-    <p>Email: jyousuf1@mail.valenciacollege.edu</p>
+    <!-- FOOTER -->
+    <footer>
+        <p>© 2026 Jayden Yousuf</p>
+    </footer>
 
 </body>
 </html>
