@@ -8,27 +8,27 @@ const modalSkills = document.getElementById("modalSkills");
 const projects = {
   "Python Calculator": {
     description: "A basic calculator for practicing Python fundamentals and problem-solving.",
-    skills: "Python, Problem Solving",
+    skills: "Python, Problem Solving"
   },
   "Tic-Tac-Toe": {
     description: "Interactive game built with Python logic, playable directly in the browser.",
-    skills: "Python, Logic, User Interaction",
+    skills: "Python, Logic, User Interaction"
   },
   "Password Generator": {
     description: "Generates strong, random passwords; practice with Python functions.",
-    skills: "Python, String Manipulation, Security",
+    skills: "Python, String Manipulation, Security"
   },
   "Quiz Game": {
     description: "A multiple-choice quiz game that tests knowledge interactively.",
-    skills: "Python, Logic, User Interaction",
+    skills: "Python, Logic, User Interaction"
   },
   "Profile Card Maker": {
     description: "Interactive project to create visual profile cards using HTML/CSS/JS.",
-    skills: "HTML, CSS, JavaScript",
+    skills: "HTML, CSS, JavaScript"
   },
   "Guess the Number": {
     description: "Simple interactive Python game where the player guesses a randomly chosen number.",
-    skills: "Python, Logic, Loops",
+    skills: "Python, Logic, Loops"
   }
 };
 
@@ -37,7 +37,7 @@ function openProject(projectName) {
   if (projects[projectName]) {
     modalTitle.textContent = projectName;
     modalDescription.textContent = projects[projectName].description;
-    modalSkills.innerHTML = `<strong>Skills:</strong> ${projects[projectName].skills}`;
+    modalSkills.innerHTML = "<strong>Skills:</strong> " + projects[projectName].skills;
     modal.style.display = "block";
   }
 }
