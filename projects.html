@@ -1,6 +1,81 @@
-<nav>
-  <a href="index.html">Home</a>
-  <a href="projects.html">Projects</a>
-  <a href="skills.html">Skills</a>
-  <a href="goals.html">Goals</a>
-</nav>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jayden Yousuf | Projects</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script src="projects.js" defer></script>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <a href="index.html">Home</a>
+        <a href="projects.html">Projects</a>
+        <a href="skills.html">Skills</a>
+        <a href="goals.html">Goals</a>
+    </nav>
+
+    <!-- Header -->
+    <header class="header">
+        <h1>My Projects</h1>
+        <h2>Interactive and Learning-Focused</h2>
+    </header>
+
+    <!-- Projects Section -->
+    <main class="projects-section">
+        <div class="project-card" onclick="openProject('Python Calculator')">
+            <h3>Python Calculator</h3>
+            <p>A basic calculator for practicing Python fundamentals and problem-solving.</p>
+            <p><strong>Skills:</strong> Python, Problem Solving</p>
+        </div>
+
+        <div class="project-card" onclick="openProject('Tic-Tac-Toe')">
+            <h3>Tic-Tac-Toe Game</h3>
+            <p>Interactive game built with Python logic, playable directly in the browser via modal.</p>
+            <p><strong>Skills:</strong> Python, Logic, User Interaction</p>
+        </div>
+
+        <div class="project-card" onclick="openProject('Password Generator')">
+            <h3>Password Generator</h3>
+            <p>Generates strong, random passwords; fully interactive for practice with Python functions.</p>
+            <p><strong>Skills:</strong> Python, String Manipulation, Security</p>
+        </div>
+
+        <div class="project-card" onclick="openProject('Quiz Game')">
+            <h3>Quiz Game</h3>
+            <p>A multiple-choice quiz game that tests knowledge interactively.</p>
+            <p><strong>Skills:</strong> Python, Logic, User Interaction</p>
+        </div>
+
+        <div class="project-card" onclick="openProject('Profile Card Maker')">
+            <h3>Profile Card Maker</h3>
+            <p>Interactive project to create visual profile cards using HTML/CSS/JS.</p>
+            <p><strong>Skills:</strong> HTML, CSS, JavaScript</p>
+        </div>
+
+        <div class="project-card" onclick="openProject('Guess the Number')">
+            <h3>Guess the Number</h3>
+            <p>Simple interactive Python game where the player guesses a randomly chosen number.</p>
+            <p><strong>Skills:</strong> Python, Logic, Loops</p>
+        </div>
+    </main>
+
+    <!-- Project Modal -->
+    <div id="projectModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeProject()">&times;</span>
+            <h2 id="modalTitle">Project Name</h2>
+            <p id="modalDescription">Project description will appear here...</p>
+            <p id="modalSkills"><strong>Skills:</strong> List skills here</p>
+            <!-- Optional: Embed interactive Python demos if possible -->
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>© 2026 Jayden Yousuf. All rights reserved.</p>
+    </footer>
+</body>
+</html>
