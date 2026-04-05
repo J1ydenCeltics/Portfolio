@@ -29,6 +29,149 @@
         .skill { background: #161b22; padding: 8px 12px; border-radius: 6px; font-weight: bold; transition: background 0.2s, transform 0.2s; }
         .skill:hover { background: #39ff14; color: #0d1117; transform: scale(1.1); }
         footer { text-align: center; padding: 20px; background: #161b22; }
+        @media (max-width: 600px){ nav a{display:block;margin:10px 0;} }
+    </style>
+</head>
+
+<body>
+
+<nav>
+    <a href="#about">About</a>
+    <a href="#projects">Projects</a>
+    <a href="#skills">Skills</a>
+    <a href="#goals">Goals</a>
+    <a href="#contact">Contact</a>
+</nav>
+
+<header>
+    <h1>Jayden Yousuf</h1>
+    <h2>Aspiring Cybersecurity Analyst</h2>
+    <p>Focused on learning programming and building cybersecurity skills</p>
+</header>
+
+<!-- About Me Section -->
+<section id="about">
+    <h3>About Me</h3>
+    <div style="display:flex; flex-wrap:wrap; align-items:center; gap:20px;">
+        <!-- Profile Image -->
+        <img src="AboutMe.jpg" alt="Jayden Yousuf" style="border-radius:12px; width:200px; height:auto; border:2px solid #39ff14;">
+        
+        <!-- Extended Bio -->
+        <p style="flex:1; min-width:250px;">
+            Hello! I’m <strong>Jayden Yousuf</strong>, a passionate college student exploring the world of programming and cybersecurity. 
+            I’m currently taking the <em>Social Networking Job Search</em> class, and I’ve discovered a deep interest in understanding 
+            how digital systems work, how to secure them, and how to solve complex problems through logical thinking and creativity. 
+            My journey started with learning Python, HTML, CSS, and JavaScript, and has expanded to hands-on projects like building calculators, 
+            games, and mini applications to sharpen my coding and analytical skills. <br><br>
+            I am highly motivated to develop professional skills in cybersecurity, data analysis, and networking basics. 
+            Beyond programming, I enjoy exploring problem-solving challenges, researching innovative technologies, and improving my 
+            technical documentation and communication abilities. My ultimate goal is to combine technical expertise with creative solutions 
+            to contribute meaningfully to the cybersecurity field.
+        </p>
+    </div>
+</section>
+
+<!-- Projects Section -->
+<section id="projects">
+    <h3>Projects</h3>
+    <div class="card-container">
+        <div class="card" onclick="openModal('Python Calculator', true,false,false,false)">
+            <img src="https://via.placeholder.com/400" alt="Python Calculator">
+            <h4>Python Calculator</h4>
+        </div>
+        <div class="card" onclick="openModal('Tic-Tac-Toe Game', false,true,false,false)">
+            <img src="https://via.placeholder.com/400" alt="Tic-Tac-Toe">
+            <h4>Tic-Tac-Toe Game</h4>
+        </div>
+        <div class="card" onclick="openModal('Password Generator', false,false,true,false)">
+            <img src="https://via.placeholder.com/400" alt="Password Generator">
+            <h4>Password Generator</h4>
+        </div>
+        <div class="card" onclick="openModal('Simple Quiz Game', false,false,false,true)">
+            <img src="https://via.placeholder.com/400" alt="Quiz Game">
+            <h4>Simple Quiz Game</h4>
+        </div>
+        <div class="card" onclick="openModal('Mini Spreadsheet', false,false,false,false,true)">
+            <img src="https://via.placeholder.com/400" alt="Mini Spreadsheet">
+            <h4>Mini Spreadsheet</h4>
+        </div>
+        <div class="card" onclick="openModal('Profile Card Maker', false,false,false,false,false,true)">
+            <img src="https://via.placeholder.com/400" alt="Profile Card Maker">
+            <h4>Profile Card Maker</h4>
+        </div>
+    </div>
+</section>
+
+<!-- Skills Section -->
+<section id="skills">
+    <h3>Skills</h3>
+    <div class="skills">
+        <span class="skill">Python</span>
+        <span class="skill">HTML</span>
+        <span class="skill">CSS</span>
+        <span class="skill">JavaScript</span>
+        <span class="skill">GitHub</span>
+        <span class="skill">Excel</span>
+        <span class="skill">Word</span>
+        <span class="skill">PowerPoint</span>
+        <span class="skill">Problem-Solving</span>
+        <span class="skill">Data Analysis</span>
+        <span class="skill">Networking Basics</span>
+        <span class="skill">Research & Documentation</span>
+    </div>
+</section>
+
+<section id="goals">
+    <h3>Goals</h3>
+    <ul>
+        <li>Learn cybersecurity fundamentals</li>
+        <li>Improve Python skills</li>
+        <li>Build more projects</li>
+        <li>Gain real-world experience</li>
+    </ul>
+</section>
+
+<section id="contact">
+    <h3>Contact</h3>
+    <p>Email: jyousuf1@mail.valenciacollege.edu</p>
+</section>
+
+<footer>
+    <p>© 2026 Jayden Yousuf</p>
+</footer>
+
+</body>
+</html><!DOCTYPE html>
+<html>
+<head>
+    <title>Jayden Yousuf - Portfolio</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            background-color: #0d1117;
+            color: #c9d1d9;
+            scroll-behavior: smooth;
+        }
+        a { color: #39ff14; text-decoration: none; }
+        a:hover { text-decoration: underline; }
+        h1, h2, h3 { color: #39ff14; }
+        nav { background: #161b22; padding: 15px; text-align: center; position: sticky; top: 0; z-index: 1000; }
+        nav a { margin: 0 15px; font-weight: bold; }
+        nav a:hover { text-decoration: underline; }
+        header { text-align: center; padding: 60px 20px; }
+        section { max-width: 900px; margin: auto; padding: 40px 20px; }
+        .card-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
+        .card { background: #161b22; padding: 20px; border-radius: 12px; transition: transform 0.2s, box-shadow 0.2s; cursor: pointer; position: relative; }
+        .card:hover { transform: translateY(-5px); box-shadow: 0 0 15px #39ff14; }
+        .card img { width: 100%; border-radius: 8px; transition: transform 0.2s; }
+        .card img:hover { transform: scale(1.05); }
+        .skills { display: flex; flex-wrap: wrap; gap: 15px; }
+        .skill { background: #161b22; padding: 8px 12px; border-radius: 6px; font-weight: bold; transition: background 0.2s, transform 0.2s; }
+        .skill:hover { background: #39ff14; color: #0d1117; transform: scale(1.1); }
+        footer { text-align: center; padding: 20px; background: #161b22; }
         .modal { display: none; position: fixed; z-index: 2000; padding-top: 60px; left: 0; top: 0; width: 100%; height: 100%; overflow: auto; background-color: rgba(0,0,0,0.9); }
         .modal-content { background-color: #0d1117; margin: auto; padding: 20px; border-radius: 12px; width: 80%; max-width: 700px; color: #c9d1d9; text-align: center; }
         .close { color: #39ff14; float: right; font-size: 28px; font-weight: bold; cursor: pointer; }
