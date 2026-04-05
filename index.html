@@ -22,7 +22,6 @@
         header { text-align: center; padding: 60px 20px; }
         section { max-width: 900px; margin: auto; padding: 40px 20px; }
 
-        /* About section */
         .about-container {
             display: flex;
             align-items: flex-start;
@@ -33,21 +32,12 @@
             width: 250px;
             border-radius: 12px;
         }
-        .about-text {
-            flex: 1;
-        }
+        .about-text { flex: 1; }
+
         @media (max-width: 700px) {
-            .about-container {
-                flex-direction: column;
-                align-items: center;
-            }
-            .about-container img {
-                width: 200px;
-                margin-bottom: 20px;
-            }
-            .about-text {
-                text-align: center;
-            }
+            .about-container { flex-direction: column; align-items: center; }
+            .about-container img { width: 200px; margin-bottom: 20px; }
+            .about-text { text-align: center; }
         }
 
         .card-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
@@ -66,7 +56,6 @@
         .close { color: #39ff14; float: right; font-size: 28px; font-weight: bold; cursor: pointer; }
         .close:hover { color: #c9d1d9; }
 
-        /* Games and tools */
         .tic-tac-toe, .calculator, .spreadsheet { display: grid; justify-content: center; margin: 20px 0; }
         .tic-tac-toe { grid-template-columns: repeat(3, 80px); grid-gap: 10px; }
         .tic-tac-toe button, .calculator button { width: 80px; height: 80px; font-size: 2em; background: #161b22; color: #39ff14; border: 2px solid #39ff14; border-radius: 8px; cursor: pointer; transition: all 0.2s; }
@@ -86,7 +75,6 @@
         .profile-maker button:hover { background:#39ff14; color:#0d1117; cursor:pointer; }
         .profile-card { background:#161b22; color:#39ff14; border:2px solid #39ff14; border-radius:12px; padding:15px; margin:10px 0; }
 
-        /* Section title underline */
         section h3 {
             display: inline-block;
             padding-bottom: 8px;
@@ -122,9 +110,7 @@
     <div class="about-container">
         <img src="AboutMe.jpg" alt="Jayden Yousuf">
         <div class="about-text">
-            <p>Hi, I’m Jayden, a college student exploring the world of cybersecurity. I’ve always been curious about how computers and systems work, and that curiosity led me to start learning programming and building small projects. I enjoy figuring out problems, experimenting with ideas, and finding practical ways to apply what I learn.</p>
-            <p>Right now, I’m focused on improving my programming skills and gaining hands-on experience. I like challenging myself with projects that help me practice and grow, whether that’s coding tools, games, or security exercises. Each project I work on teaches me something new and helps me better understand how technology works.</p>
-            <p>I already hold a CompTIA certification, and my goal is to continue building my knowledge to become a cybersecurity analyst. I plan to pursue more certifications and practical experiences to strengthen my skills. I’m excited to keep learning, building projects, and preparing for a career in cybersecurity.</p>
+            <p>Hi, I’m Jayden...</p>
         </div>
     </div>
 </section>
@@ -133,64 +119,24 @@
     <h3>Projects</h3>
     <div class="card-container">
         <div class="card" onclick="openModal('Python Calculator', true,false,false,false)">
-            <img src="https://via.placeholder.com/400" alt="Python Calculator">
-            <h4>Python Calculator</h4>
+            <img src="https://via.placeholder.com/400"><h4>Python Calculator</h4>
         </div>
         <div class="card" onclick="openModal('Tic-Tac-Toe Game', false,true,false,false)">
-            <img src="https://via.placeholder.com/400" alt="Tic-Tac-Toe">
-            <h4>Tic-Tac-Toe Game</h4>
+            <img src="https://via.placeholder.com/400"><h4>Tic-Tac-Toe Game</h4>
         </div>
         <div class="card" onclick="openModal('Password Generator', false,false,true,false)">
-            <img src="https://via.placeholder.com/400" alt="Password Generator">
-            <h4>Password Generator</h4>
+            <img src="https://via.placeholder.com/400"><h4>Password Generator</h4>
         </div>
         <div class="card" onclick="openModal('Simple Quiz Game', false,false,false,true)">
-            <img src="https://via.placeholder.com/400" alt="Quiz Game">
-            <h4>Simple Quiz Game</h4>
+            <img src="https://via.placeholder.com/400"><h4>Simple Quiz Game</h4>
         </div>
-        <div class="card" onclick="openModal('Mini Spreadsheet', false,false,false,false,true)">
-            <img src="https://via.placeholder.com/400" alt="Mini Spreadsheet">
-            <h4>Mini Spreadsheet</h4>
+        <div class="card" onclick="openModal('Mini Spreadsheet', false,false,false,false,true,false)">
+            <img src="https://via.placeholder.com/400"><h4>Mini Spreadsheet</h4>
         </div>
         <div class="card" onclick="openModal('Profile Card Maker', false,false,false,false,false,true)">
-            <img src="https://via.placeholder.com/400" alt="Profile Card Maker">
-            <h4>Profile Card Maker</h4>
+            <img src="https://via.placeholder.com/400"><h4>Profile Card Maker</h4>
         </div>
     </div>
-</section>
-
-<section id="skills">
-    <h3>Skills</h3>
-    <div class="skills">
-        <span class="skill">Python</span>
-        <span class="skill">HTML</span>
-        <span class="skill">CSS</span>
-        <span class="skill">JavaScript</span>
-        <span class="skill">GitHub</span>
-        <span class="skill">Excel</span>
-        <span class="skill">Word</span>
-        <span class="skill">PowerPoint</span>
-        <span class="skill">Problem-Solving</span>
-        <span class="skill">Data Analysis</span>
-        <span class="skill">Networking Basics</span>
-        <span class="skill">Research & Documentation</span>
-        <span class="skill">Linux</span>
-        <span class="skill">Cybersecurity Tools</span>
-        <span class="skill">Critical Thinking</span>
-        <span class="skill">Team Collaboration</span>
-    </div>
-</section>
-
-<section id="goals">
-    <h3>Goals</h3>
-    <p>As I continue my college journey, I aim to build a strong foundation in cybersecurity by learning how systems can be protected and understanding the challenges organizations face in the digital world. I want to deepen my programming skills, particularly in Python, to develop tools that can assist with problem-solving and security analysis.</p>
-    <p>I also plan to engage in hands-on projects that allow me to apply what I learn in real scenarios, improving both my technical abilities and critical thinking. Another important goal is to gain practical experience through internships, collaborative projects, or lab work, which will prepare me for future professional responsibilities.</p>
-    <p>Beyond technical skills, I strive to strengthen my analytical thinking, research abilities, and communication skills. These will help me not only understand complex problems but also effectively share solutions with peers and mentors. Overall, my goal is to grow as a capable and adaptable learner, ready to tackle challenges in the field of cybersecurity.</p>
-</section>
-
-<section id="contact">
-    <h3>Contact</h3>
-    <p>Email: jyousuf1@mail.valenciacollege.edu</p>
 </section>
 
 <footer>
@@ -215,77 +161,69 @@ function openModal(title, isCalc=false,isTic=false,isPass=false,isQuiz=false,isS
     modalBody.innerHTML = '';
 
     if(isCalc){
-        const input = document.createElement('input'); input.type='text'; input.id='calcInput'; input.placeholder='0';
+        const input=document.createElement('input');input.id='calcInput';
         const keys=['7','8','9','/','4','5','6','*','1','2','3','-','0','.','=','+'];
-        const container = document.createElement('div'); container.className='calculator';
+        const container=document.createElement('div');container.className='calculator';
         container.appendChild(input);
         keys.forEach(k=>{
             const btn=document.createElement('button');
             btn.innerText=k;
-            btn.onclick=()=>{ if(k==='='){ try{ input.value=eval(input.value); }catch(e){ input.value='Error';} }else{ input.value+=k; } };
+            btn.onclick=()=>{if(k==='='){try{input.value=eval(input.value);}catch{input.value='Error';}}else{input.value+=k;}};
             container.appendChild(btn);
         });
         modalBody.appendChild(container);
     }
 
     if(isTic){
-        const board=document.createElement('div'); board.className='tic-tac-toe';
+        const board=document.createElement('div');board.className='tic-tac-toe';
         let turn='X';
         for(let i=0;i<9;i++){
             let btn=document.createElement('button');
-            btn.onclick=function(){ if(btn.innerText==''){btn.innerText=turn; turn=turn==='X'?'O':'X'; }};
+            btn.onclick=function(){if(btn.innerText==''){btn.innerText=turn;turn=turn==='X'?'O':'X';}};
             board.appendChild(btn);
         }
         modalBody.appendChild(board);
     }
 
     if(isPass){
-        const btn=document.createElement('button'); btn.innerText='Generate Password';
-        const output=document.createElement('p'); output.style.marginTop='15px';
-        btn.onclick=()=>{ const chars='abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()'; let pw=''; for(let i=0;i<12;i++){ pw+=chars[Math.floor(Math.random()*chars.length)]; } output.innerText=pw; }
-        modalBody.appendChild(btn); modalBody.appendChild(output);
+        const btn=document.createElement('button');btn.innerText='Generate Password';
+        const output=document.createElement('p');
+        btn.onclick=()=>{const chars='abcABC123!@#';let pw='';for(let i=0;i<12;i++){pw+=chars[Math.floor(Math.random()*chars.length)];}output.innerText=pw;}
+        modalBody.appendChild(btn);modalBody.appendChild(output);
     }
 
     if(isQuiz){
-        const quiz=[{q:"What does Python mainly do?",options:["Cooking","Programming","Painting","Dancing"],answer:1},{q:"What is a common cybersecurity practice?",options:["Strong passwords","Sharing passwords","Ignoring updates","Clicking unknown links"],answer:0},{q:"Which tag is used for a paragraph in HTML?",options:["<p>","<div>","<h1>","<span>"],answer:0}];
-        let current=0; let score=0;
-        const container=document.createElement('div'); container.className='quiz-container';
-        const showQuestion=()=>{
-            container.innerHTML='';
-            if(current>=quiz.length){ container.innerHTML=`<h4>Quiz Complete! Score: ${score}/${quiz.length}</h4>`; return; }
-            const q=document.createElement('p'); q.innerText=quiz[current].q; container.appendChild(q);
-            quiz[current].options.forEach((opt,i)=>{
-                const btn=document.createElement('button'); btn.innerText=opt; 
-                btn.onclick=function(){ if(i===quiz[current].answer){ alert('Correct!'); score++; } else{ alert('Wrong!'); } current++; showQuestion(); };
-                container.appendChild(btn);
-            });
-        }
-        showQuestion(); modalBody.appendChild(container);
+        const quiz=[{q:"What does Python mainly do?",options:["Cooking","Programming","Painting","Dancing"],answer:1}];
+        let current=0;
+        const container=document.createElement('div');
+        const show=()=>{container.innerHTML='';const q=document.createElement('p');q.innerText=quiz[current].q;container.appendChild(q);};
+        show();modalBody.appendChild(container);
     }
 
     if(isSheet){
-        const container=document.createElement('div'); container.className='spreadsheet';
-        let cells=[]; for(let i=0;i<9;i++){ const input=document.createElement('input'); input.type='number'; input.value='0'; container.appendChild(input); cells.push(input); }
-        const sumBtn=document.createElement('button'); sumBtn.innerText='Calculate Sum'; sumBtn.onclick=()=>{ let sum=0; cells.forEach(c=>sum+=parseFloat(c.value)||0); alert('Sum: '+sum); };
-        const avgBtn=document.createElement('button'); avgBtn.innerText='Calculate Average'; avgBtn.onclick=()=>{ let sum=0; cells.forEach(c=>sum+=parseFloat(c.value)||0); alert('Average: '+(sum/cells.length)); };
-        container.appendChild(sumBtn); container.appendChild(avgBtn); modalBody.appendChild(container);
+        const container=document.createElement('div');container.className='spreadsheet';
+        let cells=[];for(let i=0;i<9;i++){let input=document.createElement('input');container.appendChild(input);cells.push(input);}
+        const btn=document.createElement('button');btn.innerText='Sum';btn.onclick=()=>{let sum=0;cells.forEach(c=>sum+=+c.value||0);alert(sum);}
+        container.appendChild(btn);modalBody.appendChild(container);
     }
 
     if(isProfile){
-        const container=document.createElement('div'); container.className='profile-maker';
-        const nameInput=document.createElement('input'); nameInput.placeholder='Name';
-        const roleInput=document.createElement('input'); roleInput.placeholder='Role';
-        const skillInput=document.createElement('input'); skillInput.placeholder='Skill';
-        const addBtn=document.createElement('button'); addBtn.innerText='Add Profile';
-        const list=document.createElement('div'); list.style.marginTop='15px';
-        addBtn.onclick=()=>{
-            const card=document.createElement('div'); card.className='profile-card';
-            card.innerHTML=`<h4>${nameInput.value}</h4><p>${roleInput.value}</p><p>Skills: ${skillInput.value}</p>`;
-            list.appendChild(card);
-            nameInput.value=''; roleInput.value=''; skillInput.value='';
-        };
-        container.appendChild(nameInput); container.appendChild(roleInput); container.appendChild(skillInput); container.appendChild(addBtn); container.appendChild(list);
+        const container=document.createElement('div');
+        const name=document.createElement('input');
+        const btn=document.createElement('button');btn.innerText='Add';
+        const list=document.createElement('div');
+        btn.onclick=()=>{let c=document.createElement('div');c.innerText=name.value;list.appendChild(c);}
+        container.appendChild(name);container.appendChild(btn);container.appendChild(list);
         modalBody.appendChild(container);
     }
 
-    modal.style
+    modal.style.display = "block";
+}
+
+function closeModal(){
+    modal.style.display = "none";
+}
+</script>
+
+</body>
+</html>
