@@ -3,199 +3,83 @@
 <head>
     <title>Jayden Yousuf - Projects</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            background-color: #0d1117;
-            color: #c9d1d9;
-            scroll-behavior: smooth;
-        }
-        a { color: #39ff14; text-decoration: none; }
-        a:hover { text-decoration: underline; }
-        h1, h2, h3 { color: #39ff14; }
-        nav { background: #161b22; padding: 15px; text-align: center; position: sticky; top: 0; z-index: 1000; }
-        nav a { margin: 0 15px; font-weight: bold; }
-        nav a:hover { text-decoration: underline; }
-        header { text-align: center; padding: 60px 20px; }
-        section { max-width: 900px; margin: auto; padding: 40px 20px; }
-        .card-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
-        .card { background: #161b22; padding: 20px; border-radius: 12px; transition: transform 0.2s, box-shadow 0.2s; cursor: pointer; position: relative; }
-        .card:hover { transform: translateY(-5px); box-shadow: 0 0 15px #39ff14; }
-        .card img { width: 100%; border-radius: 8px; transition: transform 0.2s; }
-        .card img:hover { transform: scale(1.05); }
-        footer { text-align: center; padding: 20px; background: #161b22; }
-        .modal { display: none; position: fixed; z-index: 2000; padding-top: 60px; left: 0; top: 0; width: 100%; height: 100%; overflow: auto; background-color: rgba(0,0,0,0.9); }
-        .modal-content { background-color: #0d1117; margin: auto; padding: 20px; border-radius: 12px; width: 80%; max-width: 700px; color: #c9d1d9; text-align: center; }
-        .close { color: #39ff14; float: right; font-size: 28px; font-weight: bold; cursor: pointer; }
-        .close:hover { color: #c9d1d9; }
-        .tic-tac-toe { display: grid; grid-template-columns: repeat(3, 80px); grid-gap: 10px; justify-content: center; margin: 20px 0; }
-        .tic-tac-toe button, .calculator button { width: 80px; height: 80px; font-size: 2em; background: #161b22; color: #39ff14; border: 2px solid #39ff14; border-radius: 8px; cursor: pointer; transition: all 0.2s; }
-        .tic-tac-toe button:hover, .calculator button:hover { background: #39ff14; color: #0d1117; }
-        .calculator { display: grid; grid-template-columns: repeat(4, 80px); grid-gap: 10px; justify-content: center; margin: 20px 0; }
-        .calculator input { grid-column: span 4; height: 50px; font-size: 1.5em; text-align: right; background: #0d1117; color: #39ff14; border: 2px solid #39ff14; border-radius: 6px; }
-        .quiz-container { margin-top: 20px; }
-        .quiz-container button { margin: 5px; padding: 10px 20px; font-size: 1em; border-radius: 6px; cursor: pointer; border: 2px solid #39ff14; background: #161b22; color: #39ff14; }
-        .quiz-container button:hover { background: #39ff14; color: #0d1117; }
-        .spreadsheet { display: grid; grid-template-columns: repeat(3, 80px); grid-gap: 10px; justify-content: center; margin: 20px 0; }
-        .spreadsheet input { width: 80px; height: 40px; text-align: center; border-radius: 6px; border: 2px solid #39ff14; background:#161b22; color:#39ff14; font-size:1em; }
-        .spreadsheet button { grid-column: span 3; padding:10px; margin-top:10px; }
-        .profile-maker input, .profile-maker button { margin:5px; padding:8px 12px; border-radius:6px; border:2px solid #39ff14; background:#161b22; color:#39ff14; font-size:1em; }
-        .profile-maker button:hover { background:#39ff14; color:#0d1117; cursor:pointer; }
-        .profile-card { background:#161b22; color:#39ff14; border:2px solid #39ff14; border-radius:12px; padding:15px; margin:10px 0; }
-        @media (max-width: 600px){ nav a{display:block;margin:10px 0;} .tic-tac-toe button, .calculator button, .spreadsheet input{width:60px;height:60px;} }
+        body { font-family: Arial, sans-serif; margin:0; background:#0d1117; color:#c9d1d9; scroll-behavior:smooth; }
+        nav { background:#161b22; padding:15px; text-align:center; position:sticky; top:0; z-index:1000; }
+        nav a { margin:0 15px; color:#39ff14; font-weight:bold; text-decoration:none; }
+        nav a:hover { text-decoration:underline; }
+        section { max-width:900px; margin:auto; padding:40px 20px; }
+        h1,h2,h3 { color:#39ff14; }
+        .project { background:#161b22; padding:20px; border-radius:12px; margin-bottom:20px; }
+        .project img { width:100%; border-radius:8px; }
+        footer { text-align:center; padding:20px; background:#161b22; }
     </style>
 </head>
 <body>
 
 <nav>
     <a href="index.html">Home</a>
-    <a href="#projects">Projects</a>
+    <a href="#Python-Calculator">Python Calculator</a>
+    <a href="#Tic-Tac-Toe">Tic-Tac-Toe</a>
+    <a href="#Password-Generator">Password Generator</a>
+    <a href="#Simple-Quiz-Game">Quiz Game</a>
+    <a href="#Mini-Spreadsheet">Mini Spreadsheet</a>
+    <a href="#Profile-Card-Maker">Profile Card Maker</a>
 </nav>
 
 <header>
-    <h1>Jayden Yousuf - Projects</h1>
-    <h2>Detailed View of My Projects</h2>
-    <p>Click on a project card to explore its interactive features</p>
+    <h1>My Projects</h1>
+    <p>Detailed descriptions of my projects.</p>
 </header>
 
-<section id="projects">
-    <h3>All Projects</h3>
-    <div class="card-container">
-        <div class="card" onclick="openModal('Python Calculator', true,false,false,false)">
-            <img src="https://via.placeholder.com/400" alt="Python Calculator">
-            <h4>Python Calculator</h4>
-            <p>A basic calculator using Python for arithmetic operations.</p>
-        </div>
-        <div class="card" onclick="openModal('Tic-Tac-Toe Game', false,true,false,false)">
-            <img src="https://via.placeholder.com/400" alt="Tic-Tac-Toe">
-            <h4>Tic-Tac-Toe Game</h4>
-            <p>Interactive 3x3 Tic-Tac-Toe game playable in the browser.</p>
-        </div>
-        <div class="card" onclick="openModal('Password Generator', false,false,true,false)">
-            <img src="https://via.placeholder.com/400" alt="Password Generator">
-            <h4>Password Generator</h4>
-            <p>Generates random secure passwords with letters, numbers, and symbols.</p>
-        </div>
-        <div class="card" onclick="openModal('Simple Quiz Game', false,false,false,true)">
-            <img src="https://via.placeholder.com/400" alt="Quiz Game">
-            <h4>Simple Quiz Game</h4>
-            <p>A quiz with multiple-choice questions to test basic knowledge.</p>
-        </div>
-        <div class="card" onclick="openModal('Mini Spreadsheet', false,false,false,false,true)">
-            <img src="https://via.placeholder.com/400" alt="Mini Spreadsheet">
-            <h4>Mini Spreadsheet</h4>
-            <p>A small spreadsheet to calculate sums and averages of numbers.</p>
-        </div>
-        <div class="card" onclick="openModal('Profile Card Maker', false,false,false,false,false,true)">
-            <img src="https://via.placeholder.com/400" alt="Profile Card Maker">
-            <h4>Profile Card Maker</h4>
-            <p>Create and display custom profile cards with name, role, and skills.</p>
-        </div>
-    </div>
+<section id="Python-Calculator" class="project">
+    <h2>Python Calculator</h2>
+    <img src="https://via.placeholder.com/400" alt="Python Calculator">
+    <p>A basic calculator built in Python capable of performing addition, subtraction, multiplication, and division. Good for practicing logic and GUI design.</p>
+</section>
+
+<section id="Tic-Tac-Toe" class="project">
+    <h2>Tic-Tac-Toe Game</h2>
+    <img src="https://via.placeholder.com/400" alt="Tic-Tac-Toe">
+    <p>A classic Tic-Tac-Toe game using JavaScript where two players can play on the same device. Introduces event handling and game state management.</p>
+</section>
+
+<section id="Password-Generator" class="project">
+    <h2>Password Generator</h2>
+    <img src="https://via.placeholder.com/400" alt="Password Generator">
+    <p>A random password generator in JavaScript with letters, numbers, and symbols. Teaches security basics and randomization techniques.</p>
+</section>
+
+<section id="Simple-Quiz-Game" class="project">
+    <h2>Simple Quiz Game</h2>
+    <img src="https://via.placeholder.com/400" alt="Quiz Game">
+    <p>A small quiz application built in JavaScript that tests users with multiple-choice questions. It tracks score and provides feedback.</p>
+</section>
+
+<section id="Mini-Spreadsheet" class="project">
+    <h2>Mini Spreadsheet</h2>
+    <img src="https://via.placeholder.com/400" alt="Mini Spreadsheet">
+    <p>A mini spreadsheet that allows inputting numbers and calculating sum/average. Uses JavaScript for basic calculations and DOM manipulation.</p>
+</section>
+
+<section id="Profile-Card-Maker" class="project">
+    <h2>Profile Card Maker</h2>
+    <img src="https://via.placeholder.com/400" alt="Profile Card Maker">
+    <p>Create dynamic profile cards with name, role, and skills. Helps practice DOM manipulation and interactive UI creation in JavaScript.</p>
 </section>
 
 <footer>
     <p>© 2026 Jayden Yousuf</p>
 </footer>
 
-<div id="projectModal" class="modal">
-    <div class="modal-content">
-        <span class="close" onclick="closeModal()">&times;</span>
-        <h3 id="modalTitle"></h3>
-        <div id="modalBody"></div>
-    </div>
-</div>
-
 <script>
-const modal = document.getElementById('projectModal');
-const modalTitle = document.getElementById('modalTitle');
-const modalBody = document.getElementById('modalBody');
-
-function openModal(title, isCalc=false,isTic=false,isPass=false,isQuiz=false,isSheet=false,isProfile=false){
-    modalTitle.innerText = title;
-    modalBody.innerHTML = '';
-
-    if(isCalc){
-        const input = document.createElement('input'); input.type='text'; input.id='calcInput'; input.placeholder='0';
-        const keys=['7','8','9','/','4','5','6','*','1','2','3','-','0','.','=','+'];
-        const container = document.createElement('div'); container.className='calculator';
-        container.appendChild(input);
-        keys.forEach(k=>{
-            const btn=document.createElement('button');
-            btn.innerText=k;
-            btn.onclick=()=>{ if(k==='='){ try{ input.value=eval(input.value); }catch(e){ input.value='Error';} }else{ input.value+=k; } };
-            container.appendChild(btn);
-        });
-        modalBody.appendChild(container);
-    }
-
-    if(isTic){
-        const board=document.createElement('div'); board.className='tic-tac-toe';
-        let turn='X';
-        for(let i=0;i<9;i++){
-            let btn=document.createElement('button');
-            btn.onclick=function(){ if(btn.innerText==''){btn.innerText=turn; turn=turn==='X'?'O':'X'; }};
-            board.appendChild(btn);
-        }
-        modalBody.appendChild(board);
-    }
-
-    if(isPass){
-        const btn=document.createElement('button'); btn.innerText='Generate Password';
-        const output=document.createElement('p'); output.style.marginTop='15px';
-        btn.onclick=()=>{ const chars='abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()'; let pw=''; for(let i=0;i<12;i++){ pw+=chars[Math.floor(Math.random()*chars.length)]; } output.innerText=pw; }
-        modalBody.appendChild(btn); modalBody.appendChild(output);
-    }
-
-    if(isQuiz){
-        const quiz=[{q:"What does Python mainly do?",options:["Cooking","Programming","Painting","Dancing"],answer:1},{q:"What is a common cybersecurity practice?",options:["Strong passwords","Sharing passwords","Ignoring updates","Clicking unknown links"],answer:0},{q:"Which tag is used for a paragraph in HTML?",options:["<p>","<div>","<h1>","<span>"],answer:0}];
-        let current=0; let score=0;
-        const container=document.createElement('div'); container.className='quiz-container';
-        const showQuestion=()=>{
-            container.innerHTML='';
-            if(current>=quiz.length){ container.innerHTML=`<h4>Quiz Complete! Score: ${score}/${quiz.length}</h4>`; return; }
-            const q=document.createElement('p'); q.innerText=quiz[current].q; container.appendChild(q);
-            quiz[current].options.forEach((opt,i)=>{
-                const btn=document.createElement('button'); btn.innerText=opt; 
-                btn.onclick=function(){ if(i===quiz[current].answer){ alert('Correct!'); score++; } else{ alert('Wrong!'); } current++; showQuestion(); };
-                container.appendChild(btn);
-            });
-        }
-        showQuestion(); modalBody.appendChild(container);
-    }
-
-    if(isSheet){
-        const container=document.createElement('div'); container.className='spreadsheet';
-        let cells=[]; for(let i=0;i<9;i++){ const input=document.createElement('input'); input.type='number'; input.value='0'; container.appendChild(input); cells.push(input); }
-        const sumBtn=document.createElement('button'); sumBtn.innerText='Calculate Sum'; sumBtn.onclick=()=>{ let sum=0; cells.forEach(c=>sum+=parseFloat(c.value)||0); alert('Sum: '+sum); };
-        const avgBtn=document.createElement('button'); avgBtn.innerText='Calculate Average'; avgBtn.onclick=()=>{ let sum=0; cells.forEach(c=>sum+=parseFloat(c.value)||0); alert('Average: '+(sum/cells.length)); };
-        container.appendChild(sumBtn); container.appendChild(avgBtn); modalBody.appendChild(container);
-    }
-
-    if(isProfile){
-        const container=document.createElement('div'); container.className='profile-maker';
-        const nameInput=document.createElement('input'); nameInput.placeholder='Name';
-        const roleInput=document.createElement('input'); roleInput.placeholder='Role';
-        const skillInput=document.createElement('input'); skillInput.placeholder='Skill';
-        const addBtn=document.createElement('button'); addBtn.innerText='Add Profile';
-        const list=document.createElement('div'); list.style.marginTop='15px';
-        addBtn.onclick=()=>{
-            const card=document.createElement('div'); card.className='profile-card';
-            card.innerHTML=`<h4>${nameInput.value}</h4><p>${roleInput.value}</p><p>Skills: ${skillInput.value}</p>`;
-            list.appendChild(card);
-            nameInput.value=''; roleInput.value=''; skillInput.value='';
-        };
-        container.appendChild(nameInput); container.appendChild(roleInput); container.appendChild(skillInput); container.appendChild(addBtn); container.appendChild(list);
-        modalBody.appendChild(container);
-    }
-
-    modal.style.display='block';
-}
-
-function closeModal(){ modal.style.display='none'; }
-window.onclick=function(e){ if(e.target==modal){ closeModal(); } }
+window.onload = function() {
+  const hash = window.location.hash;
+  if(hash){
+    const el = document.querySelector(hash);
+    if(el) el.scrollIntoView({ behavior: 'smooth' });
+  }
+};
 </script>
 
 </body>
