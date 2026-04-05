@@ -44,6 +44,9 @@
         .spreadsheet { display: grid; grid-template-columns: repeat(3, 80px); grid-gap: 10px; justify-content: center; margin: 20px 0; }
         .spreadsheet input { width: 80px; height: 40px; text-align: center; border-radius: 6px; border: 2px solid #39ff14; background:#161b22; color:#39ff14; font-size:1em; }
         .spreadsheet button { grid-column: span 3; padding:10px; margin-top:10px; }
+        .profile-maker input, .profile-maker button { margin:5px; padding:8px 12px; border-radius:6px; border:2px solid #39ff14; background:#161b22; color:#39ff14; font-size:1em; }
+        .profile-maker button:hover { background:#39ff14; color:#0d1117; cursor:pointer; }
+        .profile-card { background:#161b22; color:#39ff14; border:2px solid #39ff14; border-radius:12px; padding:15px; margin:10px 0; }
         @media (max-width: 600px){ nav a{display:block;margin:10px 0;} .tic-tac-toe button, .calculator button, .spreadsheet input{width:60px;height:60px;} }
     </style>
 </head>
@@ -92,9 +95,9 @@
             <img src="https://via.placeholder.com/400" alt="Mini Spreadsheet">
             <h4>Mini Spreadsheet</h4>
         </div>
-        <div class="card" onclick="openModal('Interactive Portfolio Builder', false,false,false,false,false,true)">
-            <img src="https://via.placeholder.com/400" alt="Portfolio Builder">
-            <h4>Interactive Portfolio Builder</h4>
+        <div class="card" onclick="openModal('Profile Card Maker', false,false,false,false,false,true)">
+            <img src="https://via.placeholder.com/400" alt="Profile Card Maker">
+            <h4>Profile Card Maker</h4>
         </div>
     </div>
 </section>
@@ -149,13 +152,14 @@ const modal = document.getElementById('projectModal');
 const modalTitle = document.getElementById('modalTitle');
 const modalBody = document.getElementById('modalBody');
 
-function openModal(title, isCalc=false,isTic=false,isPass=false,isQuiz=false,isSheet=false,isBuilder=false){
-    modalTitle.innerText=title;
-    modalBody.innerHTML='';
+function openModal(title, isCalc=false,isTic=false,isPass=false,isQuiz=false,isSheet=false,isProfile=false){
+    modalTitle.innerText = title;
+    modalBody.innerHTML = '';
+
     if(isCalc){
-        const input=document.createElement('input'); input.type='text'; input.id='calcInput'; input.placeholder='0';
+        const input = document.createElement('input'); input.type='text'; input.id='calcInput'; input.placeholder='0';
         const keys=['7','8','9','/','4','5','6','*','1','2','3','-','0','.','=','+'];
-        const container=document.createElement('div'); container.className='calculator';
+        const container = document.createElement('div'); container.className='calculator';
         container.appendChild(input);
         keys.forEach(k=>{
             const btn=document.createElement('button');
@@ -165,6 +169,7 @@ function openModal(title, isCalc=false,isTic=false,isPass=false,isQuiz=false,isS
         });
         modalBody.appendChild(container);
     }
+
     if(isTic){
         const board=document.createElement('div'); board.className='tic-tac-toe';
         let turn='X';
@@ -175,12 +180,14 @@ function openModal(title, isCalc=false,isTic=false,isPass=false,isQuiz=false,isS
         }
         modalBody.appendChild(board);
     }
+
     if(isPass){
         const btn=document.createElement('button'); btn.innerText='Generate Password';
         const output=document.createElement('p'); output.style.marginTop='15px';
         btn.onclick=()=>{ const chars='abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()'; let pw=''; for(let i=0;i<12;i++){ pw+=chars[Math.floor(Math.random()*chars.length)]; } output.innerText=pw; }
         modalBody.appendChild(btn); modalBody.appendChild(output);
     }
+
     if(isQuiz){
         const quiz=[{q:"What does Python mainly do?",options:["Cooking","Programming","Painting","Dancing"],answer:1},{q:"What is a common cybersecurity practice?",options:["Strong passwords","Sharing passwords","Ignoring updates","Clicking unknown links"],answer:0},{q:"Which tag is used for a paragraph in HTML?",options:["<p>","<div>","<h1>","<span>"],answer:0}];
         let current=0; let score=0;
@@ -189,10 +196,15 @@ function openModal(title, isCalc=false,isTic=false,isPass=false,isQuiz=false,isS
             container.innerHTML='';
             if(current>=quiz.length){ container.innerHTML=`<h4>Quiz Complete! Score: ${score}/${quiz.length}</h4>`; return; }
             const q=document.createElement('p'); q.innerText=quiz[current].q; container.appendChild(q);
-            quiz[current].options.forEach((opt,i)=>{ const btn=document.createElement('button'); btn.innerText=opt; btn.onclick=function(){ if(i===quiz[current].answer){ alert('Correct!'); score++; } else{ alert('Wrong!'); } current++; showQuestion(); }; container.appendChild(btn); });
+            quiz[current].options.forEach((opt,i)=>{
+                const btn=document.createElement('button'); btn.innerText=opt; 
+                btn.onclick=function(){ if(i===quiz[current].answer){ alert('Correct!'); score++; } else{ alert('Wrong!'); } current++; showQuestion(); };
+                container.appendChild(btn);
+            });
         }
         showQuestion(); modalBody.appendChild(container);
     }
+
     if(isSheet){
         const container=document.createElement('div'); container.className='spreadsheet';
         let cells=[]; for(let i=0;i<9;i++){ const input=document.createElement('input'); input.type='number'; input.value='0'; container.appendChild(input); cells.push(input); }
@@ -200,12 +212,24 @@ function openModal(title, isCalc=false,isTic=false,isPass=false,isQuiz=false,isS
         const avgBtn=document.createElement('button'); avgBtn.innerText='Calculate Average'; avgBtn.onclick=()=>{ let sum=0; cells.forEach(c=>sum+=parseFloat(c.value)||0); alert('Average: '+(sum/cells.length)); };
         container.appendChild(sumBtn); container.appendChild(avgBtn); modalBody.appendChild(container);
     }
-    if(isBuilder){
-        const container=document.createElement('div'); const list=document.createElement('div'); list.style.marginTop='15px';
-        const input=document.createElement('input'); input.placeholder='New Project Name';
-        const btn=document.createElement('button'); btn.innerText='Add Project'; btn.onclick=()=>{ const card=document.createElement('div'); card.className='card'; card.innerHTML=`<h4>${input.value}</h4>`; list.appendChild(card); input.value=''; };
-        container.appendChild(input); container.appendChild(btn); container.appendChild(list); modalBody.appendChild(container);
+
+    if(isProfile){
+        const container=document.createElement('div'); container.className='profile-maker';
+        const nameInput=document.createElement('input'); nameInput.placeholder='Name';
+        const roleInput=document.createElement('input'); roleInput.placeholder='Role';
+        const skillInput=document.createElement('input'); skillInput.placeholder='Skill';
+        const addBtn=document.createElement('button'); addBtn.innerText='Add Profile';
+        const list=document.createElement('div'); list.style.marginTop='15px';
+        addBtn.onclick=()=>{
+            const card=document.createElement('div'); card.className='profile-card';
+            card.innerHTML=`<h4>${nameInput.value}</h4><p>${roleInput.value}</p><p>Skills: ${skillInput.value}</p>`;
+            list.appendChild(card);
+            nameInput.value=''; roleInput.value=''; skillInput.value='';
+        };
+        container.appendChild(nameInput); container.appendChild(roleInput); container.appendChild(skillInput); container.appendChild(addBtn); container.appendChild(list);
+        modalBody.appendChild(container);
     }
+
     modal.style.display='block';
 }
 
