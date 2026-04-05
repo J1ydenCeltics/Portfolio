@@ -2,13 +2,29 @@
 <html>
 <head>
     <title>Jayden Yousuf - Portfolio</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <style>
+        /* BASE */
         body {
-            font-family: Arial;
+            font-family: Arial, sans-serif;
             margin: 0;
             background-color: #0d1117;
             color: #c9d1d9;
+            scroll-behavior: smooth;
+        }
+
+        a {
+            color: #39ff14;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        h1, h2, h3 {
+            color: #39ff14;
         }
 
         /* NAVIGATION */
@@ -16,17 +32,14 @@
             background: #161b22;
             padding: 15px;
             text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
         }
 
         nav a {
-            color: #39ff14;
             margin: 0 15px;
-            text-decoration: none;
             font-weight: bold;
-        }
-
-        nav a:hover {
-            text-decoration: underline;
         }
 
         /* HERO */
@@ -35,27 +48,32 @@
             padding: 60px 20px;
         }
 
-        h1, h2, h3 {
-            color: #39ff14;
-        }
-
+        /* SECTION */
         section {
             max-width: 900px;
             margin: auto;
             padding: 40px 20px;
         }
 
-        /* CARDS */
+        /* PROJECT CARDS */
+        .card-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
         .card {
             background: #161b22;
             padding: 20px;
-            margin: 15px 0;
-            border-radius: 10px;
-            transition: transform 0.2s;
+            border-radius: 12px;
+            transition: transform 0.2s, box-shadow 0.2s;
+            cursor: pointer;
+            position: relative;
         }
 
         .card:hover {
-            transform: scale(1.02);
+            transform: translateY(-5px);
+            box-shadow: 0 0 15px #39ff14;
         }
 
         .card img {
@@ -68,14 +86,76 @@
             transform: scale(1.05);
         }
 
-        ul {
-            padding-left: 20px;
+        /* SKILLS */
+        .skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
         }
 
+        .skill {
+            background: #161b22;
+            padding: 8px 12px;
+            border-radius: 6px;
+            font-weight: bold;
+            transition: background 0.2s, transform 0.2s;
+        }
+
+        .skill:hover {
+            background: #39ff14;
+            color: #0d1117;
+            transform: scale(1.1);
+        }
+
+        /* FOOTER */
         footer {
             text-align: center;
             padding: 20px;
             background: #161b22;
+        }
+
+        /* MODAL FOR PROJECT DETAILS */
+        .modal {
+            display: none; 
+            position: fixed; 
+            z-index: 2000; 
+            padding-top: 60px; 
+            left: 0;
+            top: 0;
+            width: 100%; 
+            height: 100%; 
+            overflow: auto; 
+            background-color: rgba(0,0,0,0.9);
+        }
+
+        .modal-content {
+            background-color: #0d1117;
+            margin: auto;
+            padding: 20px;
+            border-radius: 12px;
+            width: 80%;
+            max-width: 700px;
+            color: #c9d1d9;
+            text-align: center;
+        }
+
+        .close {
+            color: #39ff14;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .close:hover {
+            color: #c9d1d9;
+        }
+
+        @media (max-width: 600px) {
+            nav a {
+                display: block;
+                margin: 10px 0;
+            }
         }
 
     </style>
@@ -104,51 +184,50 @@
         <h3>About Me</h3>
         <p>
             I am a college student interested in cybersecurity, especially the programming side behind it.
-            I enjoy learning how systems work and using code to solve problems. I am currently building
-            my skills through beginner projects and hands-on practice.
+            I enjoy learning how systems work and using code to solve problems. I am building my skills
+            through beginner projects and hands-on practice.
         </p>
     </section>
 
     <!-- PROJECTS -->
     <section id="projects">
         <h3>Projects</h3>
+        <div class="card-container">
 
-        <div class="card">
-            <h4>Python Calculator</h4>
-            <img src="https://via.placeholder.com/400" alt="Python Calculator">
-            <p>Performs basic math operations and helped me learn Python fundamentals.</p>
-        </div>
+            <div class="card" onclick="openModal('Python Calculator', 'Performs basic math operations and helped me learn Python fundamentals.', 'https://via.placeholder.com/400')">
+                <img src="https://via.placeholder.com/400" alt="Python Calculator">
+                <h4>Python Calculator</h4>
+            </div>
 
-        <div class="card">
-            <h4>Tic-Tac-Toe Game</h4>
-            <img src="https://via.placeholder.com/400" alt="Tic-Tac-Toe Game">
-            <p>A simple game using loops and logic.</p>
-        </div>
+            <div class="card" onclick="openModal('Tic-Tac-Toe Game', 'A simple game using loops and logic.', 'https://via.placeholder.com/400')">
+                <img src="https://via.placeholder.com/400" alt="Tic-Tac-Toe Game">
+                <h4>Tic-Tac-Toe Game</h4>
+            </div>
 
-        <div class="card">
-            <h4>Password Generator</h4>
-            <img src="https://via.placeholder.com/400" alt="Password Generator">
-            <p>Creates random passwords and introduced me to basic security concepts.</p>
-        </div>
+            <div class="card" onclick="openModal('Password Generator', 'Creates random passwords and introduced me to basic security concepts.', 'https://via.placeholder.com/400')">
+                <img src="https://via.placeholder.com/400" alt="Password Generator">
+                <h4>Password Generator</h4>
+            </div>
 
-        <div class="card">
-            <h4>Excel Data Analysis</h4>
-            <img src="https://via.placeholder.com/400" alt="Excel Data Analysis">
-            <p>Organized data and created charts using Excel.</p>
+            <div class="card" onclick="openModal('Excel Data Analysis', 'Organized data and created charts using Excel.', 'https://via.placeholder.com/400')">
+                <img src="https://via.placeholder.com/400" alt="Excel Data Analysis">
+                <h4>Excel Data Analysis</h4>
+            </div>
+
         </div>
     </section>
 
     <!-- SKILLS -->
     <section id="skills">
         <h3>Skills</h3>
-        <ul>
-            <li>Python (beginner)</li>
-            <li>HTML (basic)</li>
-            <li>GitHub (basic)</li>
-            <li>Microsoft Word</li>
-            <li>PowerPoint</li>
-            <li>Excel</li>
-        </ul>
+        <div class="skills">
+            <span class="skill">Python</span>
+            <span class="skill">HTML</span>
+            <span class="skill">GitHub</span>
+            <span class="skill">Microsoft Word</span>
+            <span class="skill">PowerPoint</span>
+            <span class="skill">Excel</span>
+        </div>
     </section>
 
     <!-- GOALS -->
@@ -172,6 +251,36 @@
     <footer>
         <p>© 2026 Jayden Yousuf</p>
     </footer>
+
+    <!-- MODAL -->
+    <div id="projectModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h3 id="modalTitle"></h3>
+            <img id="modalImg" src="" alt="" style="width:100%; margin: 10px 0;">
+            <p id="modalDesc"></p>
+        </div>
+    </div>
+
+    <script>
+        function openModal(title, desc, img) {
+            document.getElementById('modalTitle').innerText = title;
+            document.getElementById('modalDesc').innerText = desc;
+            document.getElementById('modalImg').src = img;
+            document.getElementById('projectModal').style.display = 'block';
+        }
+
+        function closeModal() {
+            document.getElementById('projectModal').style.display = 'none';
+        }
+
+        // Close modal if click outside content
+        window.onclick = function(event) {
+            if (event.target == document.getElementById('projectModal')) {
+                closeModal();
+            }
+        }
+    </script>
 
 </body>
 </html>
