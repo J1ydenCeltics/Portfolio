@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <style>
-        /* BASE */
+        /* BASE STYLES */
         body {
             font-family: Arial, sans-serif;
             margin: 0;
@@ -42,13 +42,17 @@
             font-weight: bold;
         }
 
+        nav a:hover {
+            text-decoration: underline;
+        }
+
         /* HERO */
         header {
             text-align: center;
             padding: 60px 20px;
         }
 
-        /* SECTION */
+        /* SECTIONS */
         section {
             max-width: 900px;
             margin: auto;
@@ -158,6 +162,32 @@
             }
         }
 
+        /* Tic-Tac-Toe board */
+        .tic-tac-toe {
+            display: grid;
+            grid-template-columns: repeat(3, 80px);
+            grid-gap: 10px;
+            justify-content: center;
+            margin: 20px 0;
+        }
+
+        .tic-tac-toe button {
+            width: 80px;
+            height: 80px;
+            font-size: 2em;
+            background: #161b22;
+            color: #39ff14;
+            border: 2px solid #39ff14;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .tic-tac-toe button:hover {
+            background: #39ff14;
+            color: #0d1117;
+        }
+
     </style>
 </head>
 
@@ -183,9 +213,15 @@
     <section id="about">
         <h3>About Me</h3>
         <p>
-            I am a college student interested in cybersecurity, especially the programming side behind it.
-            I enjoy learning how systems work and using code to solve problems. I am building my skills
-            through beginner projects and hands-on practice.
+            I am a college student currently taking the Social Networking Job Search class, exploring technology and programming fundamentals.
+            Cybersecurity caught my interest because I enjoy understanding how systems work, solving problems logically, and protecting digital information.
+        </p>
+        <p>
+            I am developing my skills through hands-on projects, experimenting with Python programs, and using tools like Excel, Word, and PowerPoint. 
+            While I am just beginning, I am motivated to grow into a capable cybersecurity analyst through learning and practice.
+        </p>
+        <p>
+            My long-term goal is to gain experience in programming, cybersecurity concepts, and system analysis, while building a strong portfolio that demonstrates my technical skills and creativity.
         </p>
     </section>
 
@@ -199,12 +235,12 @@
                 <h4>Python Calculator</h4>
             </div>
 
-            <div class="card" onclick="openModal('Tic-Tac-Toe Game', 'A simple game using loops and logic.', 'https://via.placeholder.com/400')">
+            <div class="card" onclick="openModal('Tic-Tac-Toe Game', 'Play a simple game built in JavaScript.', 'https://via.placeholder.com/400', true)">
                 <img src="https://via.placeholder.com/400" alt="Tic-Tac-Toe Game">
                 <h4>Tic-Tac-Toe Game</h4>
             </div>
 
-            <div class="card" onclick="openModal('Password Generator', 'Creates random passwords and introduced me to basic security concepts.', 'https://via.placeholder.com/400')">
+            <div class="card" onclick="openModal('Password Generator', 'Creates random passwords and introduces basic security concepts.', 'https://via.placeholder.com/400')">
                 <img src="https://via.placeholder.com/400" alt="Password Generator">
                 <h4>Password Generator</h4>
             </div>
@@ -212,6 +248,16 @@
             <div class="card" onclick="openModal('Excel Data Analysis', 'Organized data and created charts using Excel.', 'https://via.placeholder.com/400')">
                 <img src="https://via.placeholder.com/400" alt="Excel Data Analysis">
                 <h4>Excel Data Analysis</h4>
+            </div>
+
+            <div class="card" onclick="openModal('Website Portfolio', 'This portfolio web page demonstrates HTML, CSS, and design skills.', 'https://via.placeholder.com/400')">
+                <img src="https://via.placeholder.com/400" alt="Website Portfolio">
+                <h4>Website Portfolio</h4>
+            </div>
+
+            <div class="card" onclick="openModal('Simple Quiz Game', 'A beginner JavaScript multiple-choice quiz game.', 'https://via.placeholder.com/400')">
+                <img src="https://via.placeholder.com/400" alt="Quiz Game">
+                <h4>Simple Quiz Game</h4>
             </div>
 
         </div>
@@ -223,10 +269,16 @@
         <div class="skills">
             <span class="skill">Python</span>
             <span class="skill">HTML</span>
+            <span class="skill">CSS</span>
             <span class="skill">GitHub</span>
             <span class="skill">Microsoft Word</span>
             <span class="skill">PowerPoint</span>
             <span class="skill">Excel</span>
+            <span class="skill">JavaScript</span>
+            <span class="skill">Problem-Solving</span>
+            <span class="skill">Data Analysis</span>
+            <span class="skill">Networking Basics</span>
+            <span class="skill">Research & Documentation</span>
         </div>
     </section>
 
@@ -259,22 +311,45 @@
             <h3 id="modalTitle"></h3>
             <img id="modalImg" src="" alt="" style="width:100%; margin: 10px 0;">
             <p id="modalDesc"></p>
+            <div id="ticTacToeContainer"></div>
         </div>
     </div>
 
     <script>
-        function openModal(title, desc, img) {
+        // MODAL LOGIC
+        function openModal(title, desc, img, isTicTacToe=false) {
             document.getElementById('modalTitle').innerText = title;
             document.getElementById('modalDesc').innerText = desc;
             document.getElementById('modalImg').src = img;
             document.getElementById('projectModal').style.display = 'block';
+            
+            const container = document.getElementById('ticTacToeContainer');
+            container.innerHTML = '';
+            if(isTicTacToe){
+                // Create Tic-Tac-Toe board
+                const board = document.createElement('div');
+                board.className = 'tic-tac-toe';
+                let turn = 'X';
+                let cells = [];
+                for(let i=0;i<9;i++){
+                    let btn = document.createElement('button');
+                    btn.onclick = function(){
+                        if(btn.innerText==''){
+                            btn.innerText = turn;
+                            turn = turn==='X'?'O':'X';
+                        }
+                    }
+                    board.appendChild(btn);
+                    cells.push(btn);
+                }
+                container.appendChild(board);
+            }
         }
 
         function closeModal() {
             document.getElementById('projectModal').style.display = 'none';
         }
 
-        // Close modal if click outside content
         window.onclick = function(event) {
             if (event.target == document.getElementById('projectModal')) {
                 closeModal();
