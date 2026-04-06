@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Profile Card Maker</title>
+<link rel="stylesheet" href="../css/project-styles.css">
+<style>
+.card {border:1px solid #000; padding:10px; margin:10px; width:200px;}
+</style>
+</head>
+<body>
+<h1>Profile Card Maker</h1>
+<label>Name: <input id="name" type="text"></label><br>
+<label>Role: <input id="role" type="text"></label><br>
+<label>Skills: <input id="skills" type="text"></label><br>
+<button onclick="addProfile()">Add Profile</button>
+<div id="cards"></div>
+<script>
+function addProfile(){
+    const name = document.getElementById('name').value;
+    const role = document.getElementById('role').value;
+    const skills = document.getElementById('skills').value;
+    const card = document.createElement('div');
+    card.className = "card";
+    card.innerHTML = "<strong>Name:</strong> "+name+"<br><strong>Role:</strong> "+role+"<br><strong>Skills:</strong> "+skills;
+    document.getElementById('cards').appendChild(card);
+    document.getElementById('name').value='';
+    document.getElementById('role').value='';
+    document.getElementById('skills').value='';
+}
+</script>
+</body>
+</html>
