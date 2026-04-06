@@ -1,48 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
+<meta charset="UTF-8" />
 <title>Simple Quiz Game</title>
-<link rel="stylesheet" href="../css/project-styles.css">
+<link rel="stylesheet" href="/css/project-styles.css" />
 </head>
 <body>
-<h1>Simple Quiz Game</h1>
-<div id="quiz"></div>
-<p id="score"></p>
-<script>
-const questions = [
-    {q:"What language is this quiz coded in?", a:"JavaScript"},
-    {q:"What does CSS stand for?", a:"Cascading Style Sheets"},
-    {q:"What symbol starts a comment in JS?", a:"//"}
-];
-let score = 0;
-let index = 0;
+<h1 style="text-align:center; color:#00ff7f;">Simple Quiz Game</h1>
 
-function showQuestion(){
-    if(index >= questions.length){
-        document.getElementById('score').textContent = "Quiz Complete! Score: " + score + "/" + questions.length;
-        return;
-    }
-    const qDiv = document.getElementById('quiz');
-    qDiv.innerHTML = '';
-    const question = document.createElement('p');
-    question.textContent = questions[index].q;
-    const input = document.createElement('input');
-    const button = document.createElement('button');
-    button.textContent = "Submit";
-    button.onclick = () => {
-        if(input.value.trim() === questions[index].a) alert("Correct!");
-        else alert("Incorrect!");
-        if(input.value.trim() === questions[index].a) score++;
-        index++;
-        showQuestion();
-    }
-    qDiv.appendChild(question);
-    qDiv.appendChild(input);
-    qDiv.appendChild(button);
-}
+<div id="quiz-container">
+    <div id="quiz"></div>
+    <p id="score"></p>
+</div>
 
-showQuestion();
-</script>
+<script src="quiz-game.js"></script>
 </body>
 </html>
