@@ -1,16 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
+<meta charset="UTF-8" />
 <title>Tic Tac Toe Game</title>
-<link rel="stylesheet" href="../css/project-styles.css">
+<link rel="stylesheet" href="../../css/project-styles.css" />
 <style>
-  #board { display: grid; grid-template-columns: repeat(3, 100px); gap: 5px; }
-  .cell { width: 100px; height: 100px; font-size: 2em; display:flex; align-items:center; justify-content:center; border: 1px solid #000; cursor:pointer; }
+  #board { display: grid; grid-template-columns: repeat(3, 100px); gap: 5px; margin: 20px auto; }
+  .cell { width: 100px; height: 100px; font-size: 2em; display:flex; align-items:center; justify-content:center; border: 2px solid #00ff7f; cursor:pointer; background-color: #1c1c1c; color: #e0e0e0; transition: background-color 0.2s ease; }
+  .cell:hover { background-color: #333; }
+  #status { text-align: center; font-weight: bold; margin-top: 15px; color: #00ff7f; }
 </style>
 </head>
 <body>
-<h1>Tic Tac Toe Game</h1>
+<h1 style="text-align:center; color:#00ff7f;">Tic Tac Toe Game</h1>
+
 <div id="board">
   <div class="cell" data-index="0"></div>
   <div class="cell" data-index="1"></div>
@@ -22,43 +25,9 @@
   <div class="cell" data-index="7"></div>
   <div class="cell" data-index="8"></div>
 </div>
-<p id="status"></p>
-<script>
-let board = Array(9).fill('');
-let turn = 'X';
-const cells = document.querySelectorAll('.cell');
-const status = document.getElementById('status');
 
-function checkWinner() {
-    const winCombos = [
-        [0,1,2],[3,4,5],[6,7,8],
-        [0,3,6],[1,4,7],[2,5,8],
-        [0,4,8],[2,4,6]
-    ];
-    for(let combo of winCombos){
-        const [a,b,c] = combo;
-        if(board[a] && board[a] === board[b] && board[a] === board[c]) return board[a];
-    }
-    return board.includes('') ? null : 'Draw';
-}
+<p id="status">Turn: X</p>
 
-cells.forEach(cell => {
-    cell.addEventListener('click', () => {
-        const idx = cell.dataset.index;
-        if(board[idx] === '' && !checkWinner()){
-            board[idx] = turn;
-            cell.textContent = turn;
-            const winner = checkWinner();
-            if(winner){
-                status.textContent = winner === 'Draw' ? 'Game Draw!' : turn + ' Wins!';
-            } else {
-                turn = turn === 'X' ? 'O' : 'X';
-                status.textContent = "Turn: " + turn;
-            }
-        }
-    });
-});
-status.textContent = "Turn: " + turn;
-</script>
+<script src="tic-tac-toe.js"></script>
 </body>
 </html>
