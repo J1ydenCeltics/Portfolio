@@ -1,1 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Python Calculator Project</title>
+<link rel="stylesheet" href="../css/project-styles.css">
+</head>
+<body>
+<h1>Python Calculator Simulation</h1>
+<div id="calculator">
+    <input type="text" id="display" value="0" readonly>
+    <div id="buttons">
+        <button onclick="appendNumber('1')">1</button>
+        <button onclick="appendNumber('2')">2</button>
+        <button onclick="appendNumber('3')">3</button>
+        <button onclick="appendNumber('4')">4</button>
+        <button onclick="appendNumber('5')">5</button>
+        <button onclick="appendNumber('6')">6</button>
+        <button onclick="appendNumber('7')">7</button>
+        <button onclick="appendNumber('8')">8</button>
+        <button onclick="appendNumber('9')">9</button>
+        <button onclick="appendNumber('0')">0</button>
+        <button onclick="setOperation('+')">+</button>
+        <button onclick="setOperation('-')">-</button>
+        <button onclick="setOperation('*')">*</button>
+        <button onclick="setOperation('/')">/</button>
+        <button onclick="calculate()">=</button>
+        <button onclick="clearDisplay()">C</button>
+    </div>
+</div>
 
+<script>
+let current = '';
+let operator = '';
+let previous = '';
+
+function appendNumber(num){
+    if(current === '0') current = num;
+    else current += num;
+    updateDisplay();
+}
+
+function setOperation(op){
+    if(current === '') return;
+    if(previous !== '') calculate();
+    operator = op;
+    previous = current;
+    current = '';
+}
+
+function calculate(){
+    let result;
+    const prev = parseFloat(previous);
+    const curr = parseFloat(current);
+    if(isNaN(prev) || isNaN(curr)) return;
+    switch(operator){
+        case '+': result = prev + curr; break;
+        case '-': result = prev - curr; break;
+        case '*': result = prev * curr; break;
+        case '/': result = prev / curr; break;
+        default: return;
+    }
+    current = result.toString();
+    operator = '';
+    previous = '';
+    updateDisplay();
+}
+
+function clearDisplay(){
+    current = '';
+    previous = '';
+    operator = '';
+    updateDisplay();
+}
+
+function updateDisplay(){
+    document.getElementById('display').value = current || '0';
+}
+</script>
+</body>
+</html>
