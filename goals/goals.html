@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>My Goals</title>
+<link rel="stylesheet" href="../css/project-styles.css">
+<style>
+.goals-list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    max-width: 700px;
+    margin: auto;
+}
+
+.goal {
+    background-color: #1c1c1c;
+    border: 2px solid #00ff7f;
+    padding: 15px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    width: 100%;
+    transition: background-color 0.2s ease;
+}
+
+.goal:hover {
+    background-color: #333;
+}
+
+#goal-popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #121212;
+    border: 2px solid #00ff7f;
+    border-radius: 8px;
+    padding: 20px;
+    width: 400px;
+    display: none;
+    z-index: 100;
+}
+
+#goal-popup button {
+    margin-top: 15px;
+}
+</style>
+</head>
+<body>
+<h1>My Goals</h1>
+
+<div class="goals-list">
+    <div class="goal" data-desc="Understand and build a strong foundation in cybersecurity by learning how systems are protected against real-world threats.">Master Cybersecurity Foundations</div>
+    <div class="goal" data-desc="Create custom tools that solve technical problems efficiently using Python.">Develop Python for Security Automation</div>
+    <div class="goal" data-desc="Complete labs and simulations to turn textbook knowledge into practical skills.">Gain Hands-On Experience</div>
+    <div class="goal" data-desc="Land an internship or junior role to contribute to a security team and learn from mentors.">Secure Real-World Experience</div>
+    <div class="goal" data-desc="Strengthen the ability to explain technical issues clearly to teammates and clients.">Communicate Complex Security Concepts</div>
+</div>
+
+<div id="goal-popup">
+    <p id="popup-text"></p>
+    <button onclick="closePopup()">Close</button>
+</div>
+
+<script>
+const goals = document.querySelectorAll('.goal');
+const popup = document.getElementById('goal-popup');
+const popupText = document.getElementById('popup-text');
+
+goals.forEach(goal => {
+    goal.addEventListener('click', () => {
+        popupText.textContent = goal.getAttribute('data-desc');
+        popup.style.display = 'block';
+    });
+});
+
+function closePopup() {
+    popup.style.display = 'none';
+}
+</script>
+</body>
+</html>
