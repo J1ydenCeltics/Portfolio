@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>My Skills</title>
+<link rel="stylesheet" href="../css/project-styles.css">
+<style>
+.skills-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+}
+
+.skill {
+    background-color: #1c1c1c;
+    border: 2px solid #00ff7f;
+    padding: 10px 15px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.skill:hover {
+    background-color: #333;
+}
+
+#skill-popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #121212;
+    border: 2px solid #00ff7f;
+    border-radius: 8px;
+    padding: 20px;
+    width: 300px;
+    display: none;
+    z-index: 100;
+}
+
+#skill-popup button {
+    margin-top: 15px;
+}
+</style>
+</head>
+<body>
+<h1>My Skills</h1>
+
+<div class="skills-list">
+    <div class="skill" data-desc="Python: I use Python for automating tasks, building tools, and experimenting with security scripts.">Python</div>
+    <div class="skill" data-desc="HTML: I create structured, semantic web pages and interactive elements.">HTML</div>
+    <div class="skill" data-desc="CSS: I style web pages with responsive and modern layouts.">CSS</div>
+    <div class="skill" data-desc="JavaScript: I add interactivity to web projects and manipulate the DOM.">JavaScript</div>
+    <div class="skill" data-desc="GitHub: I manage version control and collaborate on projects using Git and GitHub.">GitHub</div>
+    <div class="skill" data-desc="Excel: I perform calculations, create tables, and analyze data efficiently.">Excel</div>
+    <div class="skill" data-desc="Word: I document projects and create professional reports.">Word</div>
+    <div class="skill" data-desc="PowerPoint: I design presentations to communicate ideas clearly.">PowerPoint</div>
+    <div class="skill" data-desc="Problem-Solving: I approach challenges logically and find practical solutions.">Problem-Solving</div>
+    <div class="skill" data-desc="Data Analysis: I analyze datasets to extract meaningful insights.">Data Analysis</div>
+    <div class="skill" data-desc="Networking Basics: I understand fundamental networking concepts and protocols.">Networking Basics</div>
+    <div class="skill" data-desc="Research & Documentation: I gather information systematically and document processes accurately.">Research & Documentation</div>
+    <div class="skill" data-desc="Linux: I navigate the Linux operating system and use basic commands for security tasks.">Linux</div>
+    <div class="skill" data-desc="Cybersecurity Tools: I work with security software and tools to explore vulnerabilities.">Cybersecurity Tools</div>
+    <div class="skill" data-desc="Critical Thinking: I analyze problems carefully and make informed decisions.">Critical Thinking</div>
+    <div class="skill" data-desc="Team Collaboration: I work effectively with others, sharing ideas and solutions.">Team Collaboration</div>
+</div>
+
+<div id="skill-popup">
+    <p id="popup-text"></p>
+    <button onclick="closePopup()">Close</button>
+</div>
+
+<script>
+const skills = document.querySelectorAll('.skill');
+const popup = document.getElementById('skill-popup');
+const popupText = document.getElementById('popup-text');
+
+skills.forEach(skill => {
+    skill.addEventListener('click', () => {
+        popupText.textContent = skill.getAttribute('data-desc');
+        popup.style.display = 'block';
+    });
+});
+
+function closePopup() {
+    popup.style.display = 'none';
+}
+</script>
+</body>
+</html>
