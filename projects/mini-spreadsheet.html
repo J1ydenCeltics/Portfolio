@@ -3,31 +3,34 @@
 <head>
 <meta charset="UTF-8">
 <title>Mini Spreadsheet</title>
-<link rel="stylesheet" href="../css/project-styles.css">
+<link rel="stylesheet" href="/css/project-styles.css">
 </head>
 <body>
 <h1>Mini Spreadsheet</h1>
-<table id="sheet" border="1">
-<tr><td><input type="number" value="0"></td><td><input type="number" value="0"></td><td><input type="number" value="0"></td></tr>
-<tr><td><input type="number" value="0"></td><td><input type="number" value="0"></td><td><input type="number" value="0"></td></tr>
-<tr><td><input type="number" value="0"></td><td><input type="number" value="0"></td><td><input type="number" value="0"></td></tr>
-</table>
-<br>
-<button onclick="sumValues()">Calculate Sum</button>
-<button onclick="avgValues()">Calculate Average</button>
-<p id="result"></p>
-<script>
-function sumValues(){
-    let sum = 0;
-    document.querySelectorAll('input').forEach(i=>sum+=parseFloat(i.value));
-    alert("Sum: "+sum);
-}
-function avgValues(){
-    let total = 0;
-    const inputs = document.querySelectorAll('input');
-    inputs.forEach(i=>total+=parseFloat(i.value));
-    alert("Average: "+(total/inputs.length));
-}
-</script>
+
+<div id="spreadsheet-container">
+    <table id="spreadsheet">
+        <tr>
+            <td><input type="number" value="0"></td>
+            <td><input type="number" value="0"></td>
+            <td><input type="number" value="0"></td>
+        </tr>
+        <tr>
+            <td><input type="number" value="0"></td>
+            <td><input type="number" value="0"></td>
+            <td><input type="number" value="0"></td>
+        </tr>
+        <tr>
+            <td><input type="number" value="0"></td>
+            <td><input type="number" value="0"></td>
+            <td><input type="number" value="0"></td>
+        </tr>
+    </table>
+    <button id="sum-btn">Calculate Sum</button>
+    <button id="avg-btn">Calculate Average</button>
+    <p id="result">Result will appear here</p>
+</div>
+
+<script src="mini-spreadsheet.js"></script>
 </body>
 </html>
