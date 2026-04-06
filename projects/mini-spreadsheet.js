@@ -1,7 +1,6 @@
 /**
- * Mini Spreadsheet
- * Interactive spreadsheet for calculating sum and average of inputs.
- * Works with mini-spreadsheet.html
+ * Mini Spreadsheet JS
+ * Handles sum and average calculations for mini-spreadsheet.html
  */
 
 (function() {
